@@ -1,0 +1,12 @@
+c:\praksa\zadaci\tmp006\objects\onewire.o: onewire.c
+c:\praksa\zadaci\tmp006\objects\onewire.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+c:\praksa\zadaci\tmp006\objects\onewire.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+c:\praksa\zadaci\tmp006\objects\onewire.o: ..\inc/hw_ints.h
+c:\praksa\zadaci\tmp006\objects\onewire.o: ..\inc/hw_memmap.h
+c:\praksa\zadaci\tmp006\objects\onewire.o: ..\inc/hw_onewire.h
+c:\praksa\zadaci\tmp006\objects\onewire.o: ..\inc/hw_sysctl.h
+c:\praksa\zadaci\tmp006\objects\onewire.o: ..\inc/hw_types.h
+c:\praksa\zadaci\tmp006\objects\onewire.o: ..\driverlib/debug.h
+c:\praksa\zadaci\tmp006\objects\onewire.o: ..\driverlib/interrupt.h
+c:\praksa\zadaci\tmp006\objects\onewire.o: ..\driverlib/onewire.h
+c:\praksa\zadaci\tmp006\objects\onewire.o: ..\driverlib/sysctl.h

@@ -1,0 +1,9 @@
+c:\praksa\zadaci\tmp006\objects\systick.o: systick.c
+c:\praksa\zadaci\tmp006\objects\systick.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+c:\praksa\zadaci\tmp006\objects\systick.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+c:\praksa\zadaci\tmp006\objects\systick.o: ..\inc/hw_ints.h
+c:\praksa\zadaci\tmp006\objects\systick.o: ..\inc/hw_nvic.h
+c:\praksa\zadaci\tmp006\objects\systick.o: ..\inc/hw_types.h
+c:\praksa\zadaci\tmp006\objects\systick.o: ..\driverlib/debug.h
+c:\praksa\zadaci\tmp006\objects\systick.o: ..\driverlib/interrupt.h
+c:\praksa\zadaci\tmp006\objects\systick.o: ..\driverlib/systick.h

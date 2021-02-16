@@ -1,0 +1,10 @@
+c:\praksa\zadaci\tmp006\objects\flash.o: flash.c
+c:\praksa\zadaci\tmp006\objects\flash.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+c:\praksa\zadaci\tmp006\objects\flash.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+c:\praksa\zadaci\tmp006\objects\flash.o: ..\inc/hw_flash.h
+c:\praksa\zadaci\tmp006\objects\flash.o: ..\inc/hw_ints.h
+c:\praksa\zadaci\tmp006\objects\flash.o: ..\inc/hw_sysctl.h
+c:\praksa\zadaci\tmp006\objects\flash.o: ..\inc/hw_types.h
+c:\praksa\zadaci\tmp006\objects\flash.o: ..\driverlib/debug.h
+c:\praksa\zadaci\tmp006\objects\flash.o: ..\driverlib/flash.h
+c:\praksa\zadaci\tmp006\objects\flash.o: ..\driverlib/interrupt.h

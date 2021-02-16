@@ -1,0 +1,12 @@
+--cpu=Cortex-M4.fp.sp
+".\objects\tmp006.o"
+".\objects\tm4c_init.o"
+".\objects\main.o"
+".\objects\tm4c_i2c.o"
+".\objects\tm4c_uart.o"
+".\Objects\driverlib.lib"
+".\objects\startup_tm4c123.o"
+".\objects\system_tm4c123.o"
+--ro-base 0x00000000 --entry 0x00000000 --rw-base 0x20000000 --entry Reset_Handler --first __Vectors --strict --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\tmp006.map" -o .\Objects\tmp006.axf

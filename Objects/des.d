@@ -1,0 +1,10 @@
+c:\praksa\zadaci\tmp006\objects\des.o: des.c
+c:\praksa\zadaci\tmp006\objects\des.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+c:\praksa\zadaci\tmp006\objects\des.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+c:\praksa\zadaci\tmp006\objects\des.o: ..\inc/hw_des.h
+c:\praksa\zadaci\tmp006\objects\des.o: ..\inc/hw_ints.h
+c:\praksa\zadaci\tmp006\objects\des.o: ..\inc/hw_memmap.h
+c:\praksa\zadaci\tmp006\objects\des.o: ..\inc/hw_types.h
+c:\praksa\zadaci\tmp006\objects\des.o: ..\driverlib/debug.h
+c:\praksa\zadaci\tmp006\objects\des.o: ..\driverlib/des.h
+c:\praksa\zadaci\tmp006\objects\des.o: ..\driverlib/interrupt.h

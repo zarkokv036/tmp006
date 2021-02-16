@@ -1,0 +1,9 @@
+c:\praksa\zadaci\tmp006\objects\interrupt.o: interrupt.c
+c:\praksa\zadaci\tmp006\objects\interrupt.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+c:\praksa\zadaci\tmp006\objects\interrupt.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+c:\praksa\zadaci\tmp006\objects\interrupt.o: ..\inc/hw_ints.h
+c:\praksa\zadaci\tmp006\objects\interrupt.o: ..\inc/hw_nvic.h
+c:\praksa\zadaci\tmp006\objects\interrupt.o: ..\inc/hw_types.h
+c:\praksa\zadaci\tmp006\objects\interrupt.o: ..\driverlib/cpu.h
+c:\praksa\zadaci\tmp006\objects\interrupt.o: ..\driverlib/debug.h
+c:\praksa\zadaci\tmp006\objects\interrupt.o: ..\driverlib/interrupt.h

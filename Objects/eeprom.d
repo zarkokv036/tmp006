@@ -1,0 +1,13 @@
+c:\praksa\zadaci\tmp006\objects\eeprom.o: eeprom.c
+c:\praksa\zadaci\tmp006\objects\eeprom.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+c:\praksa\zadaci\tmp006\objects\eeprom.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+c:\praksa\zadaci\tmp006\objects\eeprom.o: ..\inc/hw_eeprom.h
+c:\praksa\zadaci\tmp006\objects\eeprom.o: ..\inc/hw_flash.h
+c:\praksa\zadaci\tmp006\objects\eeprom.o: ..\inc/hw_ints.h
+c:\praksa\zadaci\tmp006\objects\eeprom.o: ..\inc/hw_sysctl.h
+c:\praksa\zadaci\tmp006\objects\eeprom.o: ..\inc/hw_types.h
+c:\praksa\zadaci\tmp006\objects\eeprom.o: ..\driverlib/debug.h
+c:\praksa\zadaci\tmp006\objects\eeprom.o: ..\driverlib/flash.h
+c:\praksa\zadaci\tmp006\objects\eeprom.o: ..\driverlib/interrupt.h
+c:\praksa\zadaci\tmp006\objects\eeprom.o: ..\driverlib/sysctl.h
+c:\praksa\zadaci\tmp006\objects\eeprom.o: ..\driverlib/eeprom.h

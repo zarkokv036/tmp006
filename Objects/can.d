@@ -1,0 +1,12 @@
+c:\praksa\zadaci\tmp006\objects\can.o: can.c
+c:\praksa\zadaci\tmp006\objects\can.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+c:\praksa\zadaci\tmp006\objects\can.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+c:\praksa\zadaci\tmp006\objects\can.o: ..\inc/hw_can.h
+c:\praksa\zadaci\tmp006\objects\can.o: ..\inc/hw_ints.h
+c:\praksa\zadaci\tmp006\objects\can.o: ..\inc/hw_nvic.h
+c:\praksa\zadaci\tmp006\objects\can.o: ..\inc/hw_memmap.h
+c:\praksa\zadaci\tmp006\objects\can.o: ..\inc/hw_sysctl.h
+c:\praksa\zadaci\tmp006\objects\can.o: ..\inc/hw_types.h
+c:\praksa\zadaci\tmp006\objects\can.o: ..\driverlib/can.h
+c:\praksa\zadaci\tmp006\objects\can.o: ..\driverlib/debug.h
+c:\praksa\zadaci\tmp006\objects\can.o: ..\driverlib/interrupt.h

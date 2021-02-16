@@ -1,0 +1,326 @@
+Dependencies for Project 'driverlib', Target 'driverlib': (DO NOT MODIFY !)
+CompilerVersion: 5060750::V5.06 update 6 (build 750)::.\ARMCC
+F (.\adc.c)(0x5F3A9651)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I .. --c99-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="531" -Drvmdk -DTM4C123GH6PM-o c:\praksa\zadaci\tmp006\objects\adc.o --omf_browse c:\praksa\zadaci\tmp006\objects\adc.crf --depend c:\praksa\zadaci\tmp006\objects\adc.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5EC7CA56)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7CA5C)
+I (..\inc/hw_adc.h)(0x5F3A9657)
+I (..\inc/hw_ints.h)(0x5F3A9657)
+I (..\inc/hw_memmap.h)(0x5F3A9657)
+I (..\inc/hw_types.h)(0x5F3A9657)
+I (..\inc/hw_sysctl.h)(0x5F3A9657)
+I (..\driverlib/adc.h)(0x5F3A9651)
+I (..\driverlib/debug.h)(0x5F3A9651)
+I (..\driverlib/interrupt.h)(0x5F3A9652)
+F (.\aes.c)(0x5F3A9651)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I .. --c99-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="531" -Drvmdk -DTM4C123GH6PM-o c:\praksa\zadaci\tmp006\objects\aes.o --omf_browse c:\praksa\zadaci\tmp006\objects\aes.crf --depend c:\praksa\zadaci\tmp006\objects\aes.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7CA5C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5EC7CA56)
+I (..\inc/hw_aes.h)(0x5F3A9657)
+I (..\inc/hw_ccm.h)(0x5F3A9657)
+I (..\inc/hw_ints.h)(0x5F3A9657)
+I (..\inc/hw_memmap.h)(0x5F3A9657)
+I (..\inc/hw_nvic.h)(0x5F3A9657)
+I (..\inc/hw_types.h)(0x5F3A9657)
+I (..\driverlib/aes.h)(0x5F3A9651)
+I (..\driverlib/debug.h)(0x5F3A9651)
+I (..\driverlib/interrupt.h)(0x5F3A9652)
+F (.\can.c)(0x5F3A9651)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I .. --c99-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="531" -Drvmdk -DTM4C123GH6PM-o c:\praksa\zadaci\tmp006\objects\can.o --omf_browse c:\praksa\zadaci\tmp006\objects\can.crf --depend c:\praksa\zadaci\tmp006\objects\can.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5EC7CA56)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7CA5C)
+I (..\inc/hw_can.h)(0x5F3A9657)
+I (..\inc/hw_ints.h)(0x5F3A9657)
+I (..\inc/hw_nvic.h)(0x5F3A9657)
+I (..\inc/hw_memmap.h)(0x5F3A9657)
+I (..\inc/hw_sysctl.h)(0x5F3A9657)
+I (..\inc/hw_types.h)(0x5F3A9657)
+I (..\driverlib/can.h)(0x5F3A9651)
+I (..\driverlib/debug.h)(0x5F3A9651)
+I (..\driverlib/interrupt.h)(0x5F3A9652)
+F (.\comp.c)(0x5F3A9651)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I .. --c99-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="531" -Drvmdk -DTM4C123GH6PM-o c:\praksa\zadaci\tmp006\objects\comp.o --omf_browse c:\praksa\zadaci\tmp006\objects\comp.crf --depend c:\praksa\zadaci\tmp006\objects\comp.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5EC7CA56)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7CA5C)
+I (..\inc/hw_comp.h)(0x5F3A9657)
+I (..\inc/hw_ints.h)(0x5F3A9657)
+I (..\inc/hw_memmap.h)(0x5F3A9657)
+I (..\inc/hw_types.h)(0x5F3A9657)
+I (..\driverlib/comp.h)(0x5F3A9651)
+I (..\driverlib/debug.h)(0x5F3A9651)
+I (..\driverlib/interrupt.h)(0x5F3A9652)
+F (.\cpu.c)(0x5F3A9651)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I .. --c99-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="531" -Drvmdk -DTM4C123GH6PM-o c:\praksa\zadaci\tmp006\objects\cpu.o --omf_browse c:\praksa\zadaci\tmp006\objects\cpu.crf --depend c:\praksa\zadaci\tmp006\objects\cpu.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7CA5C)
+I (..\driverlib/cpu.h)(0x5F3A9651)
+F (.\crc.c)(0x5F3A9651)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I .. --c99-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="531" -Drvmdk -DTM4C123GH6PM-o c:\praksa\zadaci\tmp006\objects\crc.o --omf_browse c:\praksa\zadaci\tmp006\objects\crc.crf --depend c:\praksa\zadaci\tmp006\objects\crc.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5EC7CA56)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7CA5C)
+I (..\inc/hw_ccm.h)(0x5F3A9657)
+I (..\inc/hw_memmap.h)(0x5F3A9657)
+I (..\inc/hw_types.h)(0x5F3A9657)
+I (..\driverlib/crc.h)(0x5F3A9651)
+I (..\driverlib/debug.h)(0x5F3A9651)
+F (.\des.c)(0x5F3A9651)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I .. --c99-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="531" -Drvmdk -DTM4C123GH6PM-o c:\praksa\zadaci\tmp006\objects\des.o --omf_browse c:\praksa\zadaci\tmp006\objects\des.crf --depend c:\praksa\zadaci\tmp006\objects\des.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5EC7CA56)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7CA5C)
+I (..\inc/hw_des.h)(0x5F3A9657)
+I (..\inc/hw_ints.h)(0x5F3A9657)
+I (..\inc/hw_memmap.h)(0x5F3A9657)
+I (..\inc/hw_types.h)(0x5F3A9657)
+I (..\driverlib/debug.h)(0x5F3A9651)
+I (..\driverlib/des.h)(0x5F3A9651)
+I (..\driverlib/interrupt.h)(0x5F3A9652)
+F (.\eeprom.c)(0x5F3A9651)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I .. --c99-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="531" -Drvmdk -DTM4C123GH6PM-o c:\praksa\zadaci\tmp006\objects\eeprom.o --omf_browse c:\praksa\zadaci\tmp006\objects\eeprom.crf --depend c:\praksa\zadaci\tmp006\objects\eeprom.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5EC7CA56)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7CA5C)
+I (..\inc/hw_eeprom.h)(0x5F3A9657)
+I (..\inc/hw_flash.h)(0x5F3A9657)
+I (..\inc/hw_ints.h)(0x5F3A9657)
+I (..\inc/hw_sysctl.h)(0x5F3A9657)
+I (..\inc/hw_types.h)(0x5F3A9657)
+I (..\driverlib/debug.h)(0x5F3A9651)
+I (..\driverlib/flash.h)(0x5F3A9651)
+I (..\driverlib/interrupt.h)(0x5F3A9652)
+I (..\driverlib/sysctl.h)(0x5F3A9652)
+I (..\driverlib/eeprom.h)(0x5F3A9651)
+F (.\emac.c)(0x5F3A9651)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I .. --c99-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="531" -Drvmdk -DTM4C123GH6PM-o c:\praksa\zadaci\tmp006\objects\emac.o --omf_browse c:\praksa\zadaci\tmp006\objects\emac.crf --depend c:\praksa\zadaci\tmp006\objects\emac.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5EC7CA56)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7CA5C)
+I (..\inc/hw_ints.h)(0x5F3A9657)
+I (..\inc/hw_memmap.h)(0x5F3A9657)
+I (..\inc/hw_types.h)(0x5F3A9657)
+I (..\inc/hw_emac.h)(0x5F3A9657)
+I (..\driverlib/debug.h)(0x5F3A9651)
+I (..\driverlib/emac.h)(0x5F3A9651)
+I (..\driverlib/sysctl.h)(0x5F3A9652)
+I (..\driverlib/interrupt.h)(0x5F3A9652)
+I (..\driverlib/sw_crc.h)(0x5F3A9652)
+F (.\epi.c)(0x5F3A9651)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I .. --c99-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="531" -Drvmdk -DTM4C123GH6PM-o c:\praksa\zadaci\tmp006\objects\epi.o --omf_browse c:\praksa\zadaci\tmp006\objects\epi.crf --depend c:\praksa\zadaci\tmp006\objects\epi.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5EC7CA56)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7CA5C)
+I (..\inc/hw_epi.h)(0x5F3A9657)
+I (..\inc/hw_ints.h)(0x5F3A9657)
+I (..\inc/hw_memmap.h)(0x5F3A9657)
+I (..\inc/hw_sysctl.h)(0x5F3A9657)
+I (..\inc/hw_types.h)(0x5F3A9657)
+I (..\driverlib/debug.h)(0x5F3A9651)
+I (..\driverlib/epi.h)(0x5F3A9651)
+I (..\driverlib/interrupt.h)(0x5F3A9652)
+F (.\flash.c)(0x5F3A9651)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I .. --c99-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="531" -Drvmdk -DTM4C123GH6PM-o c:\praksa\zadaci\tmp006\objects\flash.o --omf_browse c:\praksa\zadaci\tmp006\objects\flash.crf --depend c:\praksa\zadaci\tmp006\objects\flash.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5EC7CA56)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7CA5C)
+I (..\inc/hw_flash.h)(0x5F3A9657)
+I (..\inc/hw_ints.h)(0x5F3A9657)
+I (..\inc/hw_sysctl.h)(0x5F3A9657)
+I (..\inc/hw_types.h)(0x5F3A9657)
+I (..\driverlib/debug.h)(0x5F3A9651)
+I (..\driverlib/flash.h)(0x5F3A9651)
+I (..\driverlib/interrupt.h)(0x5F3A9652)
+F (.\fpu.c)(0x5F3A9651)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I .. --c99-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="531" -Drvmdk -DTM4C123GH6PM-o c:\praksa\zadaci\tmp006\objects\fpu.o --omf_browse c:\praksa\zadaci\tmp006\objects\fpu.crf --depend c:\praksa\zadaci\tmp006\objects\fpu.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7CA5C)
+I (..\inc/hw_nvic.h)(0x5F3A9657)
+I (..\inc/hw_types.h)(0x5F3A9657)
+I (..\driverlib/fpu.h)(0x5F3A9651)
+F (.\gpio.c)(0x5F3A9651)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I .. --c99-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="531" -Drvmdk -DTM4C123GH6PM-o c:\praksa\zadaci\tmp006\objects\gpio.o --omf_browse c:\praksa\zadaci\tmp006\objects\gpio.crf --depend c:\praksa\zadaci\tmp006\objects\gpio.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5EC7CA56)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7CA5C)
+I (..\inc/hw_gpio.h)(0x5F3A9657)
+I (..\inc/hw_ints.h)(0x5F3A9657)
+I (..\inc/hw_memmap.h)(0x5F3A9657)
+I (..\inc/hw_sysctl.h)(0x5F3A9657)
+I (..\inc/hw_types.h)(0x5F3A9657)
+I (..\driverlib/debug.h)(0x5F3A9651)
+I (..\driverlib/gpio.h)(0x5F3AB9BD)
+I (..\driverlib/interrupt.h)(0x5F3A9652)
+F (.\hibernate.c)(0x5F3A9651)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I .. --c99-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="531" -Drvmdk -DTM4C123GH6PM-o c:\praksa\zadaci\tmp006\objects\hibernate.o --omf_browse c:\praksa\zadaci\tmp006\objects\hibernate.crf --depend c:\praksa\zadaci\tmp006\objects\hibernate.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5EC7CA56)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7CA5C)
+I (C:\Keil_v5\ARM\ARMCC\include\time.h)(0x5EC7CA52)
+I (..\inc/hw_hibernate.h)(0x5F3A9657)
+I (..\inc/hw_ints.h)(0x5F3A9657)
+I (..\inc/hw_sysctl.h)(0x5F3A9657)
+I (..\inc/hw_types.h)(0x5F3A9657)
+I (..\driverlib/debug.h)(0x5F3A9651)
+I (..\driverlib/hibernate.h)(0x5F3A9651)
+I (..\driverlib/interrupt.h)(0x5F3A9652)
+I (..\driverlib/sysctl.h)(0x5F3A9652)
+F (.\i2c.c)(0x5F3A9651)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I .. --c99-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="531" -Drvmdk -DTM4C123GH6PM-o c:\praksa\zadaci\tmp006\objects\i2c.o --omf_browse c:\praksa\zadaci\tmp006\objects\i2c.crf --depend c:\praksa\zadaci\tmp006\objects\i2c.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5EC7CA56)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7CA5C)
+I (..\inc/hw_i2c.h)(0x5F3A9657)
+I (..\inc/hw_ints.h)(0x5F3A9657)
+I (..\inc/hw_memmap.h)(0x5F3A9657)
+I (..\inc/hw_sysctl.h)(0x5F3A9657)
+I (..\inc/hw_types.h)(0x5F3A9657)
+I (..\driverlib/debug.h)(0x5F3A9651)
+I (..\driverlib/i2c.h)(0x5F3A9651)
+I (..\driverlib/interrupt.h)(0x5F3A9652)
+F (.\interrupt.c)(0x5F3A9652)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I .. --c99-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="531" -Drvmdk -DTM4C123GH6PM-o c:\praksa\zadaci\tmp006\objects\interrupt.o --omf_browse c:\praksa\zadaci\tmp006\objects\interrupt.crf --depend c:\praksa\zadaci\tmp006\objects\interrupt.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5EC7CA56)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7CA5C)
+I (..\inc/hw_ints.h)(0x5F3A9657)
+I (..\inc/hw_nvic.h)(0x5F3A9657)
+I (..\inc/hw_types.h)(0x5F3A9657)
+I (..\driverlib/cpu.h)(0x5F3A9651)
+I (..\driverlib/debug.h)(0x5F3A9651)
+I (..\driverlib/interrupt.h)(0x5F3A9652)
+F (.\lcd.c)(0x5F3A9652)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I .. --c99-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="531" -Drvmdk -DTM4C123GH6PM-o c:\praksa\zadaci\tmp006\objects\lcd.o --omf_browse c:\praksa\zadaci\tmp006\objects\lcd.crf --depend c:\praksa\zadaci\tmp006\objects\lcd.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7CA5C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5EC7CA56)
+I (..\inc/hw_memmap.h)(0x5F3A9657)
+I (..\inc/hw_types.h)(0x5F3A9657)
+I (..\inc/hw_ints.h)(0x5F3A9657)
+I (..\inc/hw_lcd.h)(0x5F3A9657)
+I (..\driverlib/interrupt.h)(0x5F3A9652)
+I (..\driverlib/sysctl.h)(0x5F3A9652)
+I (..\driverlib/lcd.h)(0x5F3A9652)
+I (..\driverlib/debug.h)(0x5F3A9651)
+F (.\mpu.c)(0x5F3A9652)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I .. --c99-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="531" -Drvmdk -DTM4C123GH6PM-o c:\praksa\zadaci\tmp006\objects\mpu.o --omf_browse c:\praksa\zadaci\tmp006\objects\mpu.crf --depend c:\praksa\zadaci\tmp006\objects\mpu.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5EC7CA56)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7CA5C)
+I (..\inc/hw_ints.h)(0x5F3A9657)
+I (..\inc/hw_nvic.h)(0x5F3A9657)
+I (..\inc/hw_types.h)(0x5F3A9657)
+I (..\driverlib/debug.h)(0x5F3A9651)
+I (..\driverlib/interrupt.h)(0x5F3A9652)
+I (..\driverlib/mpu.h)(0x5F3A9652)
+F (.\onewire.c)(0x5F3A9652)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I .. --c99-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="531" -Drvmdk -DTM4C123GH6PM-o c:\praksa\zadaci\tmp006\objects\onewire.o --omf_browse c:\praksa\zadaci\tmp006\objects\onewire.crf --depend c:\praksa\zadaci\tmp006\objects\onewire.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7CA5C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5EC7CA56)
+I (..\inc/hw_ints.h)(0x5F3A9657)
+I (..\inc/hw_memmap.h)(0x5F3A9657)
+I (..\inc/hw_onewire.h)(0x5F3A9657)
+I (..\inc/hw_sysctl.h)(0x5F3A9657)
+I (..\inc/hw_types.h)(0x5F3A9657)
+I (..\driverlib/debug.h)(0x5F3A9651)
+I (..\driverlib/interrupt.h)(0x5F3A9652)
+I (..\driverlib/onewire.h)(0x5F3A9652)
+I (..\driverlib/sysctl.h)(0x5F3A9652)
+F (.\pwm.c)(0x5F3A9652)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I .. --c99-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="531" -Drvmdk -DTM4C123GH6PM-o c:\praksa\zadaci\tmp006\objects\pwm.o --omf_browse c:\praksa\zadaci\tmp006\objects\pwm.crf --depend c:\praksa\zadaci\tmp006\objects\pwm.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5EC7CA56)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7CA5C)
+I (..\inc/hw_ints.h)(0x5F3A9657)
+I (..\inc/hw_memmap.h)(0x5F3A9657)
+I (..\inc/hw_pwm.h)(0x5F3A9657)
+I (..\inc/hw_sysctl.h)(0x5F3A9657)
+I (..\inc/hw_types.h)(0x5F3A9657)
+I (..\driverlib/debug.h)(0x5F3A9651)
+I (..\driverlib/interrupt.h)(0x5F3A9652)
+I (..\driverlib/pwm.h)(0x5F3A9652)
+F (.\qei.c)(0x5F3A9652)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I .. --c99-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="531" -Drvmdk -DTM4C123GH6PM-o c:\praksa\zadaci\tmp006\objects\qei.o --omf_browse c:\praksa\zadaci\tmp006\objects\qei.crf --depend c:\praksa\zadaci\tmp006\objects\qei.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5EC7CA56)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7CA5C)
+I (..\inc/hw_ints.h)(0x5F3A9657)
+I (..\inc/hw_memmap.h)(0x5F3A9657)
+I (..\inc/hw_qei.h)(0x5F3A9657)
+I (..\inc/hw_types.h)(0x5F3A9657)
+I (..\inc/hw_sysctl.h)(0x5F3A9657)
+I (..\driverlib/debug.h)(0x5F3A9651)
+I (..\driverlib/interrupt.h)(0x5F3A9652)
+I (..\driverlib/qei.h)(0x5F3A9652)
+F (.\shamd5.c)(0x5F3A9652)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I .. --c99-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="531" -Drvmdk -DTM4C123GH6PM-o c:\praksa\zadaci\tmp006\objects\shamd5.o --omf_browse c:\praksa\zadaci\tmp006\objects\shamd5.crf --depend c:\praksa\zadaci\tmp006\objects\shamd5.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5EC7CA56)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7CA5C)
+I (..\inc/hw_ints.h)(0x5F3A9657)
+I (..\inc/hw_memmap.h)(0x5F3A9657)
+I (..\inc/hw_nvic.h)(0x5F3A9657)
+I (..\inc/hw_shamd5.h)(0x5F3A9657)
+I (..\inc/hw_types.h)(0x5F3A9657)
+I (..\driverlib/debug.h)(0x5F3A9651)
+I (..\driverlib/interrupt.h)(0x5F3A9652)
+I (..\driverlib/shamd5.h)(0x5F3A9652)
+F (.\ssi.c)(0x5F3A9652)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I .. --c99-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="531" -Drvmdk -DTM4C123GH6PM-o c:\praksa\zadaci\tmp006\objects\ssi.o --omf_browse c:\praksa\zadaci\tmp006\objects\ssi.crf --depend c:\praksa\zadaci\tmp006\objects\ssi.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5EC7CA56)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7CA5C)
+I (..\inc/hw_ints.h)(0x5F3A9657)
+I (..\inc/hw_memmap.h)(0x5F3A9657)
+I (..\inc/hw_ssi.h)(0x5F3A9657)
+I (..\inc/hw_sysctl.h)(0x5F3A9657)
+I (..\inc/hw_types.h)(0x5F3A9657)
+I (..\driverlib/debug.h)(0x5F3A9651)
+I (..\driverlib/interrupt.h)(0x5F3A9652)
+I (..\driverlib/ssi.h)(0x5F3A9652)
+F (.\sw_crc.c)(0x5F3A9652)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I .. --c99-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="531" -Drvmdk -DTM4C123GH6PM-o c:\praksa\zadaci\tmp006\objects\sw_crc.o --omf_browse c:\praksa\zadaci\tmp006\objects\sw_crc.crf --depend c:\praksa\zadaci\tmp006\objects\sw_crc.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7CA5C)
+I (..\driverlib/sw_crc.h)(0x5F3A9652)
+F (.\sysctl.c)(0x5F3A9652)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I .. --c99-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="531" -Drvmdk -DTM4C123GH6PM-o c:\praksa\zadaci\tmp006\objects\sysctl.o --omf_browse c:\praksa\zadaci\tmp006\objects\sysctl.crf --depend c:\praksa\zadaci\tmp006\objects\sysctl.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5EC7CA56)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7CA5C)
+I (..\inc/hw_ints.h)(0x5F3A9657)
+I (..\inc/hw_nvic.h)(0x5F3A9657)
+I (..\inc/hw_sysctl.h)(0x5F3A9657)
+I (..\inc/hw_types.h)(0x5F3A9657)
+I (..\inc/hw_flash.h)(0x5F3A9657)
+I (..\driverlib/cpu.h)(0x5F3A9651)
+I (..\driverlib/debug.h)(0x5F3A9651)
+I (..\driverlib/interrupt.h)(0x5F3A9652)
+I (..\driverlib/sysctl.h)(0x5F3A9652)
+F (.\sysexc.c)(0x5F3A9652)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I .. --c99-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="531" -Drvmdk -DTM4C123GH6PM-o c:\praksa\zadaci\tmp006\objects\sysexc.o --omf_browse c:\praksa\zadaci\tmp006\objects\sysexc.crf --depend c:\praksa\zadaci\tmp006\objects\sysexc.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5EC7CA56)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7CA5C)
+I (..\inc/hw_ints.h)(0x5F3A9657)
+I (..\inc/hw_sysctl.h)(0x5F3A9657)
+I (..\inc/hw_sysexc.h)(0x5F3A9657)
+I (..\inc/hw_types.h)(0x5F3A9657)
+I (..\driverlib/debug.h)(0x5F3A9651)
+I (..\driverlib/interrupt.h)(0x5F3A9652)
+F (.\systick.c)(0x5F3A9652)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I .. --c99-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="531" -Drvmdk -DTM4C123GH6PM-o c:\praksa\zadaci\tmp006\objects\systick.o --omf_browse c:\praksa\zadaci\tmp006\objects\systick.crf --depend c:\praksa\zadaci\tmp006\objects\systick.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5EC7CA56)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7CA5C)
+I (..\inc/hw_ints.h)(0x5F3A9657)
+I (..\inc/hw_nvic.h)(0x5F3A9657)
+I (..\inc/hw_types.h)(0x5F3A9657)
+I (..\driverlib/debug.h)(0x5F3A9651)
+I (..\driverlib/interrupt.h)(0x5F3A9652)
+I (..\driverlib/systick.h)(0x5F3A9652)
+F (.\timer.c)(0x5F3A9652)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I .. --c99-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="531" -Drvmdk -DTM4C123GH6PM-o c:\praksa\zadaci\tmp006\objects\timer.o --omf_browse c:\praksa\zadaci\tmp006\objects\timer.crf --depend c:\praksa\zadaci\tmp006\objects\timer.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5EC7CA56)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7CA5C)
+I (..\inc/hw_ints.h)(0x5F3A9657)
+I (..\inc/hw_memmap.h)(0x5F3A9657)
+I (..\inc/hw_timer.h)(0x5F3A9657)
+I (..\inc/hw_types.h)(0x5F3A9657)
+I (..\inc/hw_sysctl.h)(0x5F3A9657)
+I (..\driverlib/debug.h)(0x5F3A9651)
+I (..\driverlib/interrupt.h)(0x5F3A9652)
+I (..\driverlib/timer.h)(0x5F3A9652)
+F (.\uart.c)(0x5F3A9652)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I .. --c99-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="531" -Drvmdk -DTM4C123GH6PM-o c:\praksa\zadaci\tmp006\objects\uart.o --omf_browse c:\praksa\zadaci\tmp006\objects\uart.crf --depend c:\praksa\zadaci\tmp006\objects\uart.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5EC7CA56)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7CA5C)
+I (..\inc/hw_ints.h)(0x5F3A9657)
+I (..\inc/hw_memmap.h)(0x5F3A9657)
+I (..\inc/hw_sysctl.h)(0x5F3A9657)
+I (..\inc/hw_types.h)(0x5F3A9657)
+I (..\inc/hw_uart.h)(0x5F3A9657)
+I (..\driverlib/debug.h)(0x5F3A9651)
+I (..\driverlib/interrupt.h)(0x5F3A9652)
+I (..\driverlib/uart.h)(0x5F3A9652)
+F (.\udma.c)(0x5F3A9652)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I .. --c99-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="531" -Drvmdk -DTM4C123GH6PM-o c:\praksa\zadaci\tmp006\objects\udma.o --omf_browse c:\praksa\zadaci\tmp006\objects\udma.crf --depend c:\praksa\zadaci\tmp006\objects\udma.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5EC7CA56)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7CA5C)
+I (..\inc/hw_sysctl.h)(0x5F3A9657)
+I (..\inc/hw_types.h)(0x5F3A9657)
+I (..\inc/hw_udma.h)(0x5F3A9657)
+I (..\driverlib/debug.h)(0x5F3A9651)
+I (..\driverlib/interrupt.h)(0x5F3A9652)
+I (..\driverlib/udma.h)(0x5F3A9652)
+F (.\usb.c)(0x5F3A9652)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I .. --c99-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="531" -Drvmdk -DTM4C123GH6PM-o c:\praksa\zadaci\tmp006\objects\usb.o --omf_browse c:\praksa\zadaci\tmp006\objects\usb.crf --depend c:\praksa\zadaci\tmp006\objects\usb.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5EC7CA56)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7CA5C)
+I (..\inc/hw_ints.h)(0x5F3A9657)
+I (..\inc/hw_memmap.h)(0x5F3A9657)
+I (..\inc/hw_types.h)(0x5F3A9657)
+I (..\inc/hw_sysctl.h)(0x5F3A9657)
+I (..\inc/hw_usb.h)(0x5F3A9657)
+I (..\driverlib/debug.h)(0x5F3A9651)
+I (..\driverlib/interrupt.h)(0x5F3A9652)
+I (..\driverlib/sysctl.h)(0x5F3A9652)
+I (..\driverlib/udma.h)(0x5F3A9652)
+I (..\driverlib/usb.h)(0x5F3A9652)
+F (.\watchdog.c)(0x602AF31F)(-c --cpu Cortex-M4.fp.sp -D__EVAL -D__MICROLIB -g -O0 -Otime --apcs=interwork --split_sections -I .. --c99-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="531" -Drvmdk -DTM4C123GH6PM-o c:\praksa\zadaci\tmp006\objects\watchdog.o --omf_browse c:\praksa\zadaci\tmp006\objects\watchdog.crf --depend c:\praksa\zadaci\tmp006\objects\watchdog.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5EC7CA56)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7CA5C)
+I (..\inc/hw_ints.h)(0x5F3A9657)
+I (..\inc/hw_memmap.h)(0x5F3A9657)
+I (..\inc/hw_types.h)(0x5F3A9657)
+I (..\inc/hw_watchdog.h)(0x5F3A9657)
+I (..\driverlib/debug.h)(0x5F3A9651)
+I (..\driverlib/interrupt.h)(0x5F3A9652)
+I (..\driverlib/watchdog.h)(0x5F3A9652)
+F (.\readme.txt)(0x5F3A9652)()

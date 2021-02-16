@@ -1,0 +1,12 @@
+c:\praksa\zadaci\tmp006\objects\aes.o: aes.c
+c:\praksa\zadaci\tmp006\objects\aes.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+c:\praksa\zadaci\tmp006\objects\aes.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+c:\praksa\zadaci\tmp006\objects\aes.o: ..\inc/hw_aes.h
+c:\praksa\zadaci\tmp006\objects\aes.o: ..\inc/hw_ccm.h
+c:\praksa\zadaci\tmp006\objects\aes.o: ..\inc/hw_ints.h
+c:\praksa\zadaci\tmp006\objects\aes.o: ..\inc/hw_memmap.h
+c:\praksa\zadaci\tmp006\objects\aes.o: ..\inc/hw_nvic.h
+c:\praksa\zadaci\tmp006\objects\aes.o: ..\inc/hw_types.h
+c:\praksa\zadaci\tmp006\objects\aes.o: ..\driverlib/aes.h
+c:\praksa\zadaci\tmp006\objects\aes.o: ..\driverlib/debug.h
+c:\praksa\zadaci\tmp006\objects\aes.o: ..\driverlib/interrupt.h

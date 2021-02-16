@@ -13,20 +13,36 @@ extern "C" {
 #endif
 
 #include <stdint.h>
+#include <stdbool.h>
+
+
 #include "../driverlib/sysctl.h"
+#include "../driverlib/gpio.h"
+#include "../driverlib/pin_map.h"
+#include "../driverlib/timer.h"
+#include "../inc/hw_memmap.h"
+
+#include "tm4c123gh6pm.h"
+
 
 /**
 * @brief set the system clock to 40MHz
 */
-void systemClockInit_40MHz(void);
+void initSystemClock_40MHz(void);
 
 /**
 * @brief enable clock on peripherals
 */
-void peripheralsClockEnable(void);
+void enablePeripheralsClock(void);
 
-
-
+/**
+* @brief portf3,2,1 as output, pa2 input--without interupt for it
+*/
+void initPorts(void);
+/**
+* @brief init of systick
+*/
+void initTimer(void (*pfnHandler)(void));
 
 #ifdef __cplusplus
 }
