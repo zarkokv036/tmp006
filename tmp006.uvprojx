@@ -409,16 +409,6 @@
               <FilePath>.\src\main.c</FilePath>
             </File>
             <File>
-              <FileName>tm4c_i2c.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\tm4c_i2c.h</FilePath>
-            </File>
-            <File>
-              <FileName>tm4c_i2c.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\tm4c_i2c.c</FilePath>
-            </File>
-            <File>
               <FileName>tm4c_uart.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\src\tm4c_uart.c</FilePath>

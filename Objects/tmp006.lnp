@@ -2,7 +2,6 @@
 ".\objects\tmp006.o"
 ".\objects\tm4c_init.o"
 ".\objects\main.o"
-".\objects\tm4c_i2c.o"
 ".\objects\tm4c_uart.o"
 ".\Objects\driverlib.lib"
 ".\objects\startup_tm4c123.o"

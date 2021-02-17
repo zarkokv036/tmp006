@@ -20,6 +20,7 @@ extern "C" {
 #include "../driverlib/gpio.h"
 #include "../driverlib/pin_map.h"
 #include "../driverlib/timer.h"
+#include "../driverlib/i2c.h"
 #include "../inc/hw_memmap.h"
 
 #include "tm4c123gh6pm.h"
@@ -43,6 +44,22 @@ void initPorts(void);
 * @brief init of systick
 */
 void initTimer(void (*pfnHandler)(void));
+
+
+/**
+* @brief init of i2c1
+*/
+void initI2c(uint8_t slaveAddr);
+
+/**
+* @brief i2c write command
+*/
+int i2cWrite(uint8_t slaveAddr, uint8_t reg, uint8_t *data, uint16_t length);
+
+/**
+* @brief i2c read command
+*/
+int i2cRead(uint8_t slaveAddr, uint8_t reg, uint8_t *data, uint16_t length);
 
 #ifdef __cplusplus
 }

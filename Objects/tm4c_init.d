@@ -5,5 +5,9 @@
   C:\ti\TivaWare_C_Series-2.2.0.295\inc\..\driverlib\gpio.h \
   C:\ti\TivaWare_C_Series-2.2.0.295\inc\..\driverlib\pin_map.h \
   C:\ti\TivaWare_C_Series-2.2.0.295\inc\..\driverlib\timer.h \
+  C:\ti\TivaWare_C_Series-2.2.0.295\inc\..\driverlib\i2c.h \
   C:\ti\TivaWare_C_Series-2.2.0.295\inc\..\inc\hw_memmap.h \
-  C:\ti\TivaWare_C_Series-2.2.0.295\inc\tm4c123gh6pm.h
+  C:\ti\TivaWare_C_Series-2.2.0.295\inc\tm4c123gh6pm.h \
+  C:\ti\TivaWare_C_Series-2.2.0.295\inc\..\inc\hw_i2c.h \
+  C:\ti\TivaWare_C_Series-2.2.0.295\inc\..\inc\hw_types.h \
+  C:\ti\TivaWare_C_Series-2.2.0.295\inc\..\inc\hw_gpio.h
