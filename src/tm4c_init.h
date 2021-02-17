@@ -32,7 +32,7 @@ extern "C" {
 void initSystemClock_40MHz(void);
 
 /**
-* @brief enable clock on peripherals
+* @brief enable clock on peripherals gpioF and uart0
 */
 void enablePeripheralsClock(void);
 
@@ -41,9 +41,9 @@ void enablePeripheralsClock(void);
 */
 void initPorts(void);
 /**
-* @brief init of systick
+* @brief init of timer, generate interrupt every 1 sec
 */
-void initTimer(void (*pfnHandler)(void));
+void initTimer1sec(void (*pfnHandler)(void));
 
 
 /**

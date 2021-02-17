@@ -12,9 +12,9 @@
 //static uint8_t pinState = 0;
 static uint8_t flagRead = 0;
 int16_t testTmp006Read = 0, testTmp006init = 0;
-uint16_t testVrednost = 0;
+uint16_t readManufID = 0, readConfig = 0;
 int16_t temprature = 0;
-float tempInC;
+float tempInC = 0;
 
 void togglePortF(void);
 
@@ -33,31 +33,35 @@ int main(void)
     enablePeripheralsClock();
     initPorts();
     initI2c(senzor.i2cAddress);
-
-    tmp006_resetDevice(&senzor);
-    initTimer(togglePortF);
+    initTimer1sec(togglePortF);
      //GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, GPIO_PIN_1);
     //tmp006_resetDevice(&senzor);
     
 
-    testTmp006Read = tmp006_read(&senzor, TMP006_DEVICE_ID, &testVrednost); //PRVO NEK TI DOBRO OCITA VREDNOST ID-A
+    testTmp006Read = tmp006_read(&senzor, TMP006_MANUFACTURER_ID, &readManufID); //PRVO NEK TI DOBRO OCITA VREDNOST ID-A
+    testTmp006Read = tmp006_resetDevice(&senzor);
+    testTmp006Read = tmp006_read(&senzor, TMP006_CONFIG, &readConfig); // 0x7400
+    
+    testTmp006Read = tmp006_configConvRate(&senzor, TMP006_CONVERSION_RATE_2_CONV_PER_SEC);
+    testTmp006Read = tmp006_read(&senzor, TMP006_CONFIG, &readConfig); // 0x7200
+    
     while(1)
     {
         
         if (flagRead)
         {
             tmp006_readTemp(&senzor, &temprature);
-//            tempInC = temprature * (1/32);
+            tempInC = ((float)temprature * 0.03125);
             flagRead = 0;
         }
         
-        if (temprature > 1)
+        if (tempInC > 20)
         {
-            GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, GPIO_PIN_1);
+            GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, GPIO_PIN_1); //LED ON
         }
         else 
         {
-            GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, 0);
+            GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, 0); //LED OFF
         }
         
     }

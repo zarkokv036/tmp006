@@ -48,11 +48,11 @@ enum TMP006_PinState
 */
 enum TMP006_ConversionRate
 {
-    TMP006_CONVERSION_RATE_4   = (0 << 9),         //**< 4 conv/sec */
-    TMP006_CONVERSION_RATE_2   = (1 << 9),  //**< 2 conv/sec */
-    TMP006_CONVERSION_RATE_1   = (2 << 9),  //**< 1 conv/sec */
-    TMP006_CONVERSION_RATE_05  = (3 << 9),  //**< 0.5 conv/sec */
-    TMP006_CONVERSION_RATE_025 = (4 << 9)   //**< 0.25 conv/sec */   
+    TMP006_CONVERSION_RATE_4_CONV_PER_SEC   = (0 << 9),         //**< 4 conv/sec */
+    TMP006_CONVERSION_RATE_2_CONV_PER_SEC   = (1 << 9),  //**< 2 conv/sec */
+    TMP006_CONVERSION_RATE_1_CONV_PER_SEC   = (2 << 9),  //**< 1 conv/sec */
+    TMP006_CONVERSION_RATE_0_5_CONV_PER_SEC  = (3 << 9),  //**< 0.5 conv/sec */
+    TMP006_CONVERSION_RATE_0_25_CONV_PER_SEC = (4 << 9)   //**< 0.25 conv/sec */   
 };
 
 /**

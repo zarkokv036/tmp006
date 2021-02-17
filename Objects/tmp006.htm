@@ -3,11 +3,11 @@
 <title>Static Call Graph - [.\Objects\tmp006.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\tmp006.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6140002: Last Updated: Wed Feb 17 03:03:05 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6140002: Last Updated: Wed Feb 17 15:58:56 2021
 <BR><P>
 <H3>Maximum Stack Usage =         76 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-__rt_entry_main &rArr; main &rArr; initTimer &rArr; TimerIntRegister &rArr; _TimerIntNumberGet
+__rt_entry_main &rArr; main &rArr; initTimer1sec &rArr; TimerIntRegister &rArr; _TimerIntNumberGet
 <P>
 <H3>
 Functions with no stack information
@@ -381,7 +381,7 @@ Global Symbols
 
 <P><STRONG><a name="[85]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
 <BR><BR>[Stack]<UL><LI>Max Depth = 76 + Unknown Stack Size
-<LI>Call Chain = __rt_entry_main &rArr; main &rArr; initTimer &rArr; TimerIntRegister &rArr; _TimerIntNumberGet
+<LI>Call Chain = __rt_entry_main &rArr; main &rArr; initTimer1sec &rArr; TimerIntRegister &rArr; _TimerIntNumberGet
 </UL>
 <BR>[Calls]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
@@ -406,7 +406,7 @@ Global Symbols
 <P><STRONG><a name="[8c]"></a>SysCtlDelay</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, sysctl.o(.emb_text))
 <BR><BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlDelay
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlClockSet
+<BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlClockSet
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlDelay
 </UL>
 
@@ -1291,8 +1291,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[79]"></a>i2cRead</STRONG> (Thumb, 130 bytes, Stack size 24 bytes, tm4c_init.o(.text.i2cRead))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = i2cRead
+<P><STRONG><a name="[79]"></a>i2cRead</STRONG> (Thumb, 140 bytes, Stack size 32 bytes, tm4c_init.o(.text.i2cRead))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = i2cRead
 </UL>
 <BR>[Calls]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CMasterSlaveAddrSet
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CMasterDataPut
@@ -1302,98 +1302,109 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(.rodata..L__const.main.senzor)
 </UL>
-<P><STRONG><a name="[7a]"></a>i2cWrite</STRONG> (Thumb, 98 bytes, Stack size 24 bytes, tm4c_init.o(.text.i2cWrite))
+<P><STRONG><a name="[7a]"></a>i2cWrite</STRONG> (Thumb, 106 bytes, Stack size 24 bytes, tm4c_init.o(.text.i2cWrite))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = i2cWrite
 </UL>
 <BR>[Calls]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CMasterSlaveAddrSet
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CMasterDataPut
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CMasterControl
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CMasterBusBusy
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CMasterBusy
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(.rodata..L__const.main.senzor)
 </UL>
-<P><STRONG><a name="[98]"></a>initI2c</STRONG> (Thumb, 122 bytes, Stack size 16 bytes, tm4c_init.o(.text.initI2c))
+<P><STRONG><a name="[97]"></a>initI2c</STRONG> (Thumb, 122 bytes, Stack size 16 bytes, tm4c_init.o(.text.initI2c))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = initI2c &rArr; GPIOPinTypeI2CSCL &rArr; GPIOPadConfigSet
 </UL>
-<BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlPeripheralReset
+<BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlPeripheralReset
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlPeripheralReady
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlPeripheralEnable
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlClockGet
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CMasterInitExpClk
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeI2CSCL
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeI2C
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinConfigure
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlClockGet
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CMasterInitExpClk
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeI2CSCL
+<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeI2C
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinConfigure
 </UL>
 <BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[9f]"></a>initPorts</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, tm4c_init.o(.text.initPorts))
+<P><STRONG><a name="[9e]"></a>initPorts</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, tm4c_init.o(.text.initPorts))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = initPorts &rArr; GPIOPinTypeGPIOOutput &rArr; GPIOPadConfigSet
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOUnlockPin
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeGPIOOutput
+<BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOUnlockPin
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeGPIOOutput
 </UL>
 <BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[a2]"></a>initSystemClock_40MHz</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, tm4c_init.o(.text.initSystemClock_40MHz))
+<P><STRONG><a name="[a1]"></a>initSystemClock_40MHz</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, tm4c_init.o(.text.initSystemClock_40MHz))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = initSystemClock_40MHz &rArr; SysCtlClockSet
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlClockSet
+<BR>[Calls]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlClockSet
 </UL>
 <BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[a4]"></a>initTimer</STRONG> (Thumb, 88 bytes, Stack size 16 bytes, tm4c_init.o(.text.initTimer))
-<BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = initTimer &rArr; TimerIntRegister &rArr; _TimerIntNumberGet
+<P><STRONG><a name="[a3]"></a>initTimer1sec</STRONG> (Thumb, 88 bytes, Stack size 16 bytes, tm4c_init.o(.text.initTimer1sec))
+<BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = initTimer1sec &rArr; TimerIntRegister &rArr; _TimerIntNumberGet
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerLoadSet
-<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerIntRegister
-<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerIntEnable
-<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerEnable
-<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerConfigure
+<BR>[Calls]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerLoadSet
+<LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerIntRegister
+<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerIntEnable
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerEnable
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerConfigure
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlPeripheralReady
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlPeripheralEnable
 </UL>
 <BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[86]"></a>main</STRONG> (Thumb, 182 bytes, Stack size 16 bytes, main.o(.text.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = main &rArr; initTimer &rArr; TimerIntRegister &rArr; _TimerIntNumberGet
+<P><STRONG><a name="[86]"></a>main</STRONG> (Thumb, 276 bytes, Stack size 16 bytes, main.o(.text.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = main &rArr; initTimer1sec &rArr; TimerIntRegister &rArr; _TimerIntNumberGet
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinWrite
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initSystemClock_40MHz
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initPorts
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initI2c
+<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer1sec
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initSystemClock_40MHz
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initPorts
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initI2c
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;enablePeripheralsClock
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_resetDevice
 <LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_readTemp
-<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_read
-<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_init
+<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_read
+<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_init
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_configConvRate
 </UL>
 <BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
 
-<P><STRONG><a name="[aa]"></a>tmp006_init</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, tmp006.o(.text.tmp006_init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = tmp006_init
+<P><STRONG><a name="[ac]"></a>tmp006_configConvRate</STRONG> (Thumb, 70 bytes, Stack size 24 bytes, tmp006.o(.text.tmp006_configConvRate))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = tmp006_configConvRate &rArr; tmp006_write
 </UL>
-<BR>[Calls]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setI2cAddress
+<BR>[Calls]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_write
+<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_read
 </UL>
 <BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[ac]"></a>tmp006_read</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, tmp006.o(.text.tmp006_read))
+<P><STRONG><a name="[a9]"></a>tmp006_init</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, tmp006.o(.text.tmp006_init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = tmp006_init
+</UL>
+<BR>[Calls]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setI2cAddress
+</UL>
+<BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[aa]"></a>tmp006_read</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, tmp006.o(.text.tmp006_read))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = tmp006_read
 </UL>
 <BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_readTemp
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_configConvRate
 </UL>
 
-<P><STRONG><a name="[ae]"></a>tmp006_readTemp</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, tmp006.o(.text.tmp006_readTemp))
+<P><STRONG><a name="[ae]"></a>tmp006_readTemp</STRONG> (Thumb, 40 bytes, Stack size 8 bytes, tmp006.o(.text.tmp006_readTemp))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = tmp006_readTemp &rArr; tmp006_read
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_read
+<BR>[Calls]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_read
 </UL>
 <BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1401,15 +1412,16 @@ Global Symbols
 <P><STRONG><a name="[ab]"></a>tmp006_resetDevice</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, tmp006.o(.text.tmp006_resetDevice))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = tmp006_resetDevice &rArr; tmp006_write
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_write
+<BR>[Calls]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_write
 </UL>
 <BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[b0]"></a>tmp006_write</STRONG> (Thumb, 56 bytes, Stack size 16 bytes, tmp006.o(.text.tmp006_write))
+<P><STRONG><a name="[af]"></a>tmp006_write</STRONG> (Thumb, 56 bytes, Stack size 16 bytes, tmp006.o(.text.tmp006_write))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = tmp006_write
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_resetDevice
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_configConvRate
 </UL>
 
 <P><STRONG><a name="[78]"></a>togglePortF</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, main.o(.text.togglePortF))
@@ -1420,66 +1432,63 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> main.o(.text.main)
 </UL>
 <P><STRONG><a name="[b3]"></a>GPIODirModeSet</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, gpio.o(i.GPIODirModeSet))
-<BR><BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeI2CSCL
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeI2C
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeGPIOOutput
+<BR><BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeI2CSCL
+<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeI2C
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeGPIOOutput
 </UL>
 
 <P><STRONG><a name="[b2]"></a>GPIOPadConfigSet</STRONG> (Thumb, 384 bytes, Stack size 20 bytes, gpio.o(i.GPIOPadConfigSet))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = GPIOPadConfigSet
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeI2CSCL
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeI2C
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeGPIOOutput
+<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeI2CSCL
+<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeI2C
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeGPIOOutput
 </UL>
 
-<P><STRONG><a name="[9a]"></a>GPIOPinConfigure</STRONG> (Thumb, 70 bytes, Stack size 8 bytes, gpio.o(i.GPIOPinConfigure))
+<P><STRONG><a name="[99]"></a>GPIOPinConfigure</STRONG> (Thumb, 70 bytes, Stack size 8 bytes, gpio.o(i.GPIOPinConfigure))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = GPIOPinConfigure
 </UL>
-<BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initI2c
+<BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initI2c
 </UL>
 
-<P><STRONG><a name="[a1]"></a>GPIOPinTypeGPIOOutput</STRONG> (Thumb, 30 bytes, Stack size 12 bytes, gpio.o(i.GPIOPinTypeGPIOOutput))
+<P><STRONG><a name="[a0]"></a>GPIOPinTypeGPIOOutput</STRONG> (Thumb, 30 bytes, Stack size 12 bytes, gpio.o(i.GPIOPinTypeGPIOOutput))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = GPIOPinTypeGPIOOutput &rArr; GPIOPadConfigSet
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPadConfigSet
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIODirModeSet
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initPorts
+<BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initPorts
 </UL>
 
-<P><STRONG><a name="[9c]"></a>GPIOPinTypeI2C</STRONG> (Thumb, 30 bytes, Stack size 12 bytes, gpio.o(i.GPIOPinTypeI2C))
+<P><STRONG><a name="[9b]"></a>GPIOPinTypeI2C</STRONG> (Thumb, 30 bytes, Stack size 12 bytes, gpio.o(i.GPIOPinTypeI2C))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = GPIOPinTypeI2C &rArr; GPIOPadConfigSet
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPadConfigSet
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIODirModeSet
 </UL>
-<BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initI2c
+<BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initI2c
 </UL>
 
-<P><STRONG><a name="[9b]"></a>GPIOPinTypeI2CSCL</STRONG> (Thumb, 30 bytes, Stack size 12 bytes, gpio.o(i.GPIOPinTypeI2CSCL))
+<P><STRONG><a name="[9a]"></a>GPIOPinTypeI2CSCL</STRONG> (Thumb, 30 bytes, Stack size 12 bytes, gpio.o(i.GPIOPinTypeI2CSCL))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = GPIOPinTypeI2CSCL &rArr; GPIOPadConfigSet
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPadConfigSet
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIODirModeSet
 </UL>
-<BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initI2c
+<BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initI2c
 </UL>
 
 <P><STRONG><a name="[ad]"></a>GPIOPinWrite</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, gpio.o(i.GPIOPinWrite))
 <BR><BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[a0]"></a>GPIOUnlockPin</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, gpio.o(i.GPIOUnlockPin))
-<BR><BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initPorts
-</UL>
-
-<P><STRONG><a name="[97]"></a>I2CMasterBusBusy</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, i2c.o(i.I2CMasterBusBusy))
-<BR><BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cWrite
+<P><STRONG><a name="[9f]"></a>GPIOUnlockPin</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, gpio.o(i.GPIOUnlockPin))
+<BR><BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initPorts
 </UL>
 
 <P><STRONG><a name="[95]"></a>I2CMasterBusy</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, i2c.o(i.I2CMasterBusy))
-<BR><BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cRead
+<BR><BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cWrite
+<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cRead
 </UL>
 
 <P><STRONG><a name="[94]"></a>I2CMasterControl</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, i2c.o(i.I2CMasterControl))
@@ -1497,15 +1506,15 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[b4]"></a>I2CMasterEnable</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, i2c.o(i.I2CMasterEnable))
-<BR><BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CMasterInitExpClk
+<BR><BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CMasterInitExpClk
 </UL>
 
-<P><STRONG><a name="[9e]"></a>I2CMasterInitExpClk</STRONG> (Thumb, 78 bytes, Stack size 16 bytes, i2c.o(i.I2CMasterInitExpClk))
+<P><STRONG><a name="[9d]"></a>I2CMasterInitExpClk</STRONG> (Thumb, 78 bytes, Stack size 16 bytes, i2c.o(i.I2CMasterInitExpClk))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = I2CMasterInitExpClk
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CMasterEnable
 </UL>
-<BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initI2c
+<BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initI2c
 </UL>
 
 <P><STRONG><a name="[92]"></a>I2CMasterSlaveAddrSet</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, i2c.o(i.I2CMasterSlaveAddrSet))
@@ -1514,77 +1523,77 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[b7]"></a>IntEnable</STRONG> (Thumb, 108 bytes, Stack size 0 bytes, interrupt.o(i.IntEnable))
-<BR><BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerIntRegister
+<BR><BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerIntRegister
 </UL>
 
 <P><STRONG><a name="[b6]"></a>IntRegister</STRONG> (Thumb, 52 bytes, Stack size 12 bytes, interrupt.o(i.IntRegister))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = IntRegister
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerIntRegister
+<BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerIntRegister
 </UL>
 
-<P><STRONG><a name="[9d]"></a>SysCtlClockGet</STRONG> (Thumb, 324 bytes, Stack size 20 bytes, sysctl.o(i.SysCtlClockGet))
+<P><STRONG><a name="[9c]"></a>SysCtlClockGet</STRONG> (Thumb, 324 bytes, Stack size 20 bytes, sysctl.o(i.SysCtlClockGet))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = SysCtlClockGet
 </UL>
-<BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initI2c
+<BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initI2c
 </UL>
 
-<P><STRONG><a name="[a3]"></a>SysCtlClockSet</STRONG> (Thumb, 280 bytes, Stack size 24 bytes, sysctl.o(i.SysCtlClockSet))
+<P><STRONG><a name="[a2]"></a>SysCtlClockSet</STRONG> (Thumb, 280 bytes, Stack size 24 bytes, sysctl.o(i.SysCtlClockSet))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = SysCtlClockSet
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlDelay
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initSystemClock_40MHz
+<BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initSystemClock_40MHz
 </UL>
 
 <P><STRONG><a name="[90]"></a>SysCtlPeripheralEnable</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, sysctl.o(i.SysCtlPeripheralEnable))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SysCtlPeripheralEnable
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initI2c
+<BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer1sec
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initI2c
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;enablePeripheralsClock
 </UL>
 
 <P><STRONG><a name="[91]"></a>SysCtlPeripheralReady</STRONG> (Thumb, 52 bytes, Stack size 0 bytes, sysctl.o(i.SysCtlPeripheralReady))
-<BR><BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initI2c
+<BR><BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer1sec
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initI2c
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;enablePeripheralsClock
 </UL>
 
-<P><STRONG><a name="[99]"></a>SysCtlPeripheralReset</STRONG> (Thumb, 106 bytes, Stack size 12 bytes, sysctl.o(i.SysCtlPeripheralReset))
+<P><STRONG><a name="[98]"></a>SysCtlPeripheralReset</STRONG> (Thumb, 106 bytes, Stack size 12 bytes, sysctl.o(i.SysCtlPeripheralReset))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = SysCtlPeripheralReset
 </UL>
-<BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initI2c
+<BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initI2c
 </UL>
 
-<P><STRONG><a name="[a5]"></a>TimerConfigure</STRONG> (Thumb, 84 bytes, Stack size 0 bytes, timer.o(i.TimerConfigure))
-<BR><BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer
+<P><STRONG><a name="[a4]"></a>TimerConfigure</STRONG> (Thumb, 84 bytes, Stack size 0 bytes, timer.o(i.TimerConfigure))
+<BR><BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer1sec
 </UL>
 
-<P><STRONG><a name="[a9]"></a>TimerEnable</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, timer.o(i.TimerEnable))
-<BR><BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer
+<P><STRONG><a name="[a8]"></a>TimerEnable</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, timer.o(i.TimerEnable))
+<BR><BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer1sec
 </UL>
 
 <P><STRONG><a name="[b1]"></a>TimerIntClear</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, timer.o(i.TimerIntClear))
 <BR><BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;togglePortF
 </UL>
 
-<P><STRONG><a name="[a8]"></a>TimerIntEnable</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, timer.o(i.TimerIntEnable))
-<BR><BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer
+<P><STRONG><a name="[a7]"></a>TimerIntEnable</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, timer.o(i.TimerIntEnable))
+<BR><BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer1sec
 </UL>
 
-<P><STRONG><a name="[a7]"></a>TimerIntRegister</STRONG> (Thumb, 38 bytes, Stack size 24 bytes, timer.o(i.TimerIntRegister))
+<P><STRONG><a name="[a6]"></a>TimerIntRegister</STRONG> (Thumb, 38 bytes, Stack size 24 bytes, timer.o(i.TimerIntRegister))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = TimerIntRegister &rArr; _TimerIntNumberGet
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IntRegister
 <LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IntEnable
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_TimerIntNumberGet
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer
+<BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer1sec
 </UL>
 
-<P><STRONG><a name="[a6]"></a>TimerLoadSet</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, timer.o(i.TimerLoadSet))
-<BR><BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer
+<P><STRONG><a name="[a5]"></a>TimerLoadSet</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, timer.o(i.TimerLoadSet))
+<BR><BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer1sec
 </UL>
 
 <P><STRONG><a name="[80]"></a>_fp_init</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, fpinit.o(x$fpl$fpinit))
@@ -1598,14 +1607,14 @@ Global Symbols
 <H3>
 Local Symbols
 </H3>
-<P><STRONG><a name="[af]"></a>setI2cAddress</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, tmp006.o(.text.setI2cAddress))
-<BR><BR>[Called By]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_init
+<P><STRONG><a name="[b0]"></a>setI2cAddress</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, tmp006.o(.text.setI2cAddress))
+<BR><BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_init
 </UL>
 
 <P><STRONG><a name="[b5]"></a>_TimerIntNumberGet</STRONG> (Thumb, 68 bytes, Stack size 20 bytes, timer.o(i._TimerIntNumberGet))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = _TimerIntNumberGet
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerIntRegister
+<BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerIntRegister
 </UL>
 <P>
 <H3>

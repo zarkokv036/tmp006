@@ -31,8 +31,7 @@
 #define TMP006_CHECK_PARAM(expr) \
     do                           \
     {                            \
-        int temp = (expr);        \
-        if (temp != 0)           \
+        if (expr)                \
         {                        \
             return -EINVAL;      \
         }                        \
@@ -156,7 +155,7 @@ int tmp006_write(TMP006_Device *dev, uint8_t reg, uint16_t *data)
 
 int tmp006_configConvRate(TMP006_Device *dev, enum TMP006_ConversionRate rate)
 {
-    TMP006_CHECK_PARAM((dev == NULL) || (rate > TMP006_CONVERSION_RATE_025));
+    TMP006_CHECK_PARAM((dev == NULL) || (rate > TMP006_CONVERSION_RATE_0_25_CONV_PER_SEC));
     
     uint16_t currentValue;
     int status = tmp006_read(dev, TMP006_CONFIG, &currentValue);
@@ -234,6 +233,7 @@ int tmp006_readTemp(TMP006_Device *dev, int16_t *temperature)
     TMP006_CHECK_PARAM((dev == NULL) || (temperature == NULL));
     
     int status = tmp006_read(dev, TMP006_TEMP_AMBIENT, (uint16_t *)temperature);
+    *temperature = *temperature >> 2;
     TMP006_FAIL_UNLESS_OK(status);
 
     return 0;
