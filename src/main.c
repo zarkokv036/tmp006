@@ -10,13 +10,14 @@
 
 
 //static uint8_t pinState = 0;
-static uint8_t flagRead = 0;
+uint8_t flagReady = 0;
 int16_t testTmp006Read = 0, testTmp006init = 0;
 uint16_t readManufID = 0, readConfig = 0;
 int16_t temprature = 0;
 float tempInC = 0;
 
 void togglePortF(void);
+void resultReady(void);
 
 int main(void)
 {
@@ -31,7 +32,7 @@ int main(void)
     
     initSystemClock_40MHz();
     enablePeripheralsClock();
-    initPorts();
+    initPorts(resultReady);
     initI2c(senzor.i2cAddress);
     initTimer1sec(togglePortF);
      //GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, GPIO_PIN_1);
@@ -45,14 +46,16 @@ int main(void)
     testTmp006Read = tmp006_configConvRate(&senzor, TMP006_CONVERSION_RATE_2_CONV_PER_SEC);
     testTmp006Read = tmp006_read(&senzor, TMP006_CONFIG, &readConfig); // 0x7200
     
+    testTmp006Read = tmp006_drdyPinConfig(&senzor, TMP006_DRDY_PIN_ON);
+    testTmp006Read = tmp006_read(&senzor, TMP006_CONFIG, &readConfig); // 0x7300
     while(1)
     {
         
-        if (flagRead)
+        if (flagReady)
         {
             tmp006_readTemp(&senzor, &temprature);
             tempInC = ((float)temprature * 0.03125);
-            flagRead = 0;
+            flagReady = 0;
         }
         
         if (tempInC > 20)
@@ -69,11 +72,16 @@ int main(void)
     return 0;
 }
 
+void resultReady(void)
+{
+    GPIOIntClear(GPIO_PORTA_BASE, GPIO_INT_PIN_2);
+    flagReady = 1;
+}
+//function is called every sec
 void togglePortF(void)
 {
     TimerIntClear(TIMER0_BASE, TIMER_TIMA_TIMEOUT);
-    flagRead = 1;
-    
+
 //    int32_t pinState;
 //    pinState = GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_1);
 //    pinState = (pinState ^ GPIO_PIN_1) & 0xFF;

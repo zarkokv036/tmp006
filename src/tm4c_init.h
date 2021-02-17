@@ -37,9 +37,9 @@ void initSystemClock_40MHz(void);
 void enablePeripheralsClock(void);
 
 /**
-* @brief portf3,2,1 as output, pa2 input--without interupt for it
+* @brief portf3,2,1 as output, pa2 input--with interupt for it
 */
-void initPorts(void);
+void initPorts(void (*portA2IntHandler)(void));
 /**
 * @brief init of timer, generate interrupt every 1 sec
 */

@@ -20,7 +20,7 @@ void initSystemClock_40MHz(void)
 
 void enablePeripheralsClock(void)
 {
-    //SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOA);
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOA);
     SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOF);
    // SysCtlPeripheralEnable(SYSCTL_PERIPH_I2C1);
     SysCtlPeripheralEnable(SYSCTL_PERIPH_UART0);
@@ -29,15 +29,22 @@ void enablePeripheralsClock(void)
     }
 }
 
-void initPorts(void)
+void initPorts(void (*portA2IntHandler)(void))
 {
     GPIOUnlockPin(GPIO_PORTF_BASE, GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3);
     GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, (GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3));
-   
     
-//    GPIODirModeSet(GPIO_PORTF_BASE, (GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3), GPIO_DIR_MODE_OUT);
-//    GPIODirModeSet(GPIO_PORTA_BASE, GPIO_PIN_2, GPIO_DIR_MODE_IN);
-//    GPIOPadConfigSet(GPIO_PORTF_BASE,(GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3), GPIO_STRENGTH_4MA, GPIO_PIN_TYPE_STD);
+    GPIOPinTypeGPIOInput(GPIO_PORTA_BASE, GPIO_PIN_2);
+    
+    // Register the port-level interrupt handler. This handler is the first
+    // level interrupt handler for all the pin interrupts.
+    //
+    GPIOIntRegister(GPIO_PORTA_BASE, portA2IntHandler);
+    
+    // Make pin 2 falling edge triggered interrupts.
+    //
+    GPIOIntTypeSet(GPIO_PORTA_BASE, GPIO_PIN_2, GPIO_FALLING_EDGE);
+    GPIOIntEnable(GPIO_PORTA_BASE, GPIO_PIN_2);   
 }
 
 void initTimer1sec(void (*pfnHandler)(void))
