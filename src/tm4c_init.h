@@ -23,6 +23,7 @@ extern "C" {
 #include "../driverlib/i2c.h"
 #include "../inc/hw_memmap.h"
 #include "../driverlib/uart.h"
+#include "../utils/uartstdio.h"
 
 #include "tm4c123gh6pm.h"
 
@@ -66,6 +67,9 @@ int i2cRead(uint8_t slaveAddr, uint8_t reg, uint8_t *data, uint16_t length);
 * @brief init of uart0
 */
 void initUart0(void (*pfnHandler)(void));
+
+
+void initUartPrintf(void);
 
 #ifdef __cplusplus
 }

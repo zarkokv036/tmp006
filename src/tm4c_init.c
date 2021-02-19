@@ -185,10 +185,10 @@ void initUart0(void (*pfnHandler)(void))
     
     UARTConfigSetExpClk(UART0_BASE, SysCtlClockGet(), 115200,
     (UART_CONFIG_WLEN_8 | UART_CONFIG_STOP_ONE |
-    UART_CONFIG_PAR_NONE));
+    UART_CONFIG_PAR_NONE)); //115200
     
-    UARTFIFOLevelSet(UART0_BASE, UART_FIFO_TX2_8, UART_FIFO_RX4_8); // FIFO 8 chars
-    UARTFIFOEnable(UART0_BASE); //enable FIFOs
+//    UARTFIFOLevelSet(UART0_BASE, UART_FIFO_TX2_8, UART_FIFO_RX4_8); // FIFO 8 chars
+//    UARTFIFOEnable(UART0_BASE); //enable FIFOs
 
     
     UARTIntEnable(UART0_BASE, (UART_INT_TX | UART_INT_RX));
@@ -196,5 +196,18 @@ void initUart0(void (*pfnHandler)(void))
     
     UARTEnable(UART0_BASE);
 
+}
+
+void initUartPrintf(void)
+{
+    GPIOPinTypeUART(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1);
+    //
+    // Enable UART1 functionality on GPIO Port A pins 0 and 1.
+    //
+    GPIOPinConfigure(GPIO_PA0_U0RX);
+    GPIOPinConfigure(GPIO_PA1_U0TX);
+    
+    UARTStdioConfig(0, 115200, SysCtlClockGet());
+    
 }
 

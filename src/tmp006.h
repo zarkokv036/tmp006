@@ -32,6 +32,8 @@ extern "C" {
 
 /**@}*/
 
+#define TMP006_MANUF_ID_VALUE           0x5449
+#define TMP006_DEVICE_ID_VALUE          0x0067
 /**
 * @brief State of ADR0 and ADR1 pins.
 */
