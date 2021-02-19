@@ -10,15 +10,16 @@
 
 
 //static uint8_t pinState = 0;
-uint8_t flagReady = 0;
+uint8_t flagReady = 0, flagUartSend = 0;
 int16_t testTmp006Read = 0, testTmp006init = 0;
 uint16_t readManufID = 0, readConfig = 0;
 int16_t temprature = 0;
 float tempInC = 0;
+uint8_t uartReceived[4];
 
 void togglePortF(void);
 void resultReady(void);
-
+void uartHandler(void);
 int main(void)
 {
     
@@ -35,6 +36,7 @@ int main(void)
     initPorts(resultReady);
     initI2c(senzor.i2cAddress);
     initTimer1sec(togglePortF);
+    initUart0(uartHandler);
      //GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, GPIO_PIN_1);
     //tmp006_resetDevice(&senzor);
     
@@ -66,6 +68,12 @@ int main(void)
         {
             GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, 0); //LED OFF
         }
+        if(flagUartSend)
+        {
+            flagUartSend = 0;
+            uint8_t s = 6;
+            UARTCharPut(UART0_BASE, s);//samo proba
+        }
         
     }
 
@@ -77,15 +85,30 @@ void resultReady(void)
     GPIOIntClear(GPIO_PORTA_BASE, GPIO_INT_PIN_2);
     flagReady = 1;
 }
+
 //function is called every sec
 void togglePortF(void)
 {
     TimerIntClear(TIMER0_BASE, TIMER_TIMA_TIMEOUT);
-
+    flagUartSend = 1;
 //    int32_t pinState;
 //    pinState = GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_1);
 //    pinState = (pinState ^ GPIO_PIN_1) & 0xFF;
 //    GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, pinState);
+}
+
+void uartHandler(void)
+{
+    uint32_t intStatus;
     
+    intStatus = UARTIntStatus(UART0_BASE, true);
     
+    UARTIntClear(UART0_BASE, intStatus); //clear the asserted interrupts
+    uint16_t i = 0; 
+    //rx interrupt happens when there is 4 byte in rx fifo    
+    while(UARTCharsAvail(UART0_BASE)) //loop while there are chars
+    {
+         uartReceived[i] = UARTCharGetNonBlocking(UART0_BASE);
+         i++;
+    }
 }
