@@ -34,41 +34,49 @@ extern "C" {
 void initSystemClock_40MHz(void);
 
 /**
-* @brief enable clock on peripherals gpioF and uart0
+* @brief enable clock on peripherals GPIOA, GPIOF, and uart0
 */
 void enablePeripheralsClock(void);
 
 /**
-* @brief portf3,2,1 as output, pa2 input--with interupt for it
+* @brief portf3,2,1 as output, pa2 input--with falling edge interupt for it
+* @param portA2IntHandler pointer to a handler function of edge interrupt
 */
 void initPorts(void (*portA2IntHandler)(void));
+
 /**
 * @brief init of timer, generate interrupt every 1 sec
+* @param pfnHandler pointer to a handler function timer interrupt
 */
 void initTimer1sec(void (*pfnHandler)(void));
 
-
 /**
-* @brief init of i2c1
+* @brief init of i2c1, speed 100kbs
+* @param slaveAddr address of slave
 */
 void initI2c(uint8_t slaveAddr);
 
 /**
 * @brief i2c write command
+* @param slaveAddr address of slave
+* @param reg address of register you want to write into
+* @param data pointer to a data you want to write into slave
+* @param length length of data you want to send
 */
 int i2cWrite(uint8_t slaveAddr, uint8_t reg, uint8_t *data, uint16_t length);
 
 /**
 * @brief i2c read command
+* @param slaveAddr address of slave
+* @param reg address of register you want to read
+* @param data pointer to a data you want to read from
+* @param length length of data you want to receive
 */
 int i2cRead(uint8_t slaveAddr, uint8_t reg, uint8_t *data, uint16_t length);
 
 /**
-* @brief init of uart0
+* @brief init of uart0 for debugging 
 */
-void initUart0(void (*pfnHandler)(void));
-
-
 void initUartPrintf(void);
 
 #ifdef __cplusplus

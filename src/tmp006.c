@@ -115,11 +115,7 @@ static int setI2cAddress(uint8_t *address ,enum TMP006_PinState A0state, enum TM
 int tmp006_init(TMP006_Device *dev,enum TMP006_PinState A0State, enum TMP006_PinState A1State)
 {
     TMP006_CHECK_PARAM((dev == NULL) || (dev->i2cRead == NULL) || (dev->i2cWrite == NULL));
-//    if((dev == NULL) || (dev->i2cRead == NULL) || (dev->i2cWrite == NULL))
-//    {
-//        return -EINVAL;
-//    }
-    
+
     int status = setI2cAddress(&dev->i2cAddress, A0State, A1State);
     TMP006_FAIL_UNLESS_OK(status);
     

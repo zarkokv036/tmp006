@@ -16,18 +16,18 @@
     {                                    \
         if (expr)                        \
         {                                \
-            UARTprintf("test fail \n");  \
+            UARTprintf("test failed \n");  \
         }                                \
         else                             \
         {                                \
-            UARTprintf("test pass \n");  \
+            UARTprintf("test passed \n");  \
         }                                \
                                          \
                                          \
     } while (0)
     
     
-#define TMP006_REG_TEST(mask,checkValue)                         \
+#define TMP006_TEST_ASSERT(mask,checkValue)                      \
     do                                                           \
     {                                                            \
        uint16_t valueOfReg = (readReg(&senzor, TMP006_CONFIG));  \
@@ -35,19 +35,30 @@
        TMP006_TEST(valueOfReg != checkValue);                    \
     }while(0)                                                    \
 
+   
+
     
-//static uint8_t pinState = 0;
 uint8_t flagReady = 0, flagUartSend = 0;
-int16_t testTmp006Read = 0, testTmp006init = 0;
-//uint16_t readManufID = 0, readConfig = 0;
+int16_t testTmp006init = 0;
 int16_t temprature = 0;
 float tempInC = 0;
-uint8_t uartReceived[4];
 
+/**
+* @brief toggling LED every second with timer
+*/
 void togglePortF(void);
+
+/**
+* @brief handler for edge interrupt on PORTA2
+*/
 void resultReady(void);
-void uartHandler(void);
-uint16_t readReg(TMP006_Device *dev, uint8_t reg);
+
+/**
+* @brief Read value of specified register
+* @param dev Pointer to the TMP006 device structure
+* @param addr address of register you want to read
+*/    
+uint16_t readReg(TMP006_Device *dev, uint8_t addr);
 
 int main(void)
 {
@@ -65,69 +76,51 @@ int main(void)
     initPorts(resultReady);
     initI2c(senzor.i2cAddress);
     initTimer1sec(togglePortF);
-    //initUart0(uartHandler);
     initUartPrintf();
-     //GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, GPIO_PIN_1);
-    //tmp006_resetDevice(&senzor);
     uint16_t regValue;
-    
+
     UARTprintf("~~~TEST~~~ \n");
+    
+    //Reading manufacture ID test
+    UARTprintf("reading id test\n");
     regValue = readReg(&senzor, TMP006_MANUFACTURER_ID);
     TMP006_TEST(regValue != TMP006_MANUF_ID_VALUE);
     
-    for(uint32_t i = TMP006_CONVERSION_RATE_4_CONV_PER_SEC; i<= TMP006_CONVERSION_RATE_0_25_CONV_PER_SEC; i++)
+    //TEST OF CONVERSION RATE CONFIGURATION
+    UARTprintf("conversion rate configuration test \n");
+    for(uint16_t i = 0; i <= (TMP006_CONVERSION_RATE_0_25_CONV_PER_SEC >> 9) ; i++)
     {
-        switch(i)
-        {
-            case TMP006_CONVERSION_RATE_4_CONV_PER_SEC:
-            {
-                tmp006_configConvRate(&senzor, TMP006_CONVERSION_RATE_4_CONV_PER_SEC);
-                TMP006_REG_TEST (TMP006_CR_MASK, TMP006_CONVERSION_RATE_4_CONV_PER_SEC);
-//                regValue = readReg(&senzor, TMP006_CONFIG);
-//                regValue &= TMP006_CR_MASK;
-//                TMP006_TEST(regValue != TMP006_CONVERSION_RATE_4_CONV_PER_SEC);
-                break;
-            }
-            case TMP006_CONVERSION_RATE_2_CONV_PER_SEC:
-            {
-                tmp006_configConvRate(&senzor, TMP006_CONVERSION_RATE_2_CONV_PER_SEC);
-                TMP006_REG_TEST (TMP006_CR_MASK, TMP006_CONVERSION_RATE_2_CONV_PER_SEC);
-                break;
-            }
-            case TMP006_CONVERSION_RATE_1_CONV_PER_SEC:
-            {
-                tmp006_configConvRate(&senzor, TMP006_CONVERSION_RATE_1_CONV_PER_SEC);
-                TMP006_REG_TEST (TMP006_CR_MASK, TMP006_CONVERSION_RATE_1_CONV_PER_SEC);
-                break;
-            }
-            case TMP006_CONVERSION_RATE_0_5_CONV_PER_SEC:
-            {
-                tmp006_configConvRate(&senzor, TMP006_CONVERSION_RATE_0_5_CONV_PER_SEC);
-                TMP006_REG_TEST (TMP006_CR_MASK, TMP006_CONVERSION_RATE_0_5_CONV_PER_SEC);
-                break;
-            }
-            case TMP006_CONVERSION_RATE_0_25_CONV_PER_SEC:
-            {
-                tmp006_configConvRate(&senzor, TMP006_CONVERSION_RATE_0_25_CONV_PER_SEC);
-                TMP006_REG_TEST (TMP006_CR_MASK, TMP006_CONVERSION_RATE_0_25_CONV_PER_SEC);
-                break;
-            }
-        }            
+        tmp006_configConvRate(&senzor, (i << 9));
+        TMP006_TEST_ASSERT(TMP006_CR_MASK, (i << 9));
     }
+     
+    //Test of DRDY pin mode
+    UARTprintf("result ready pin(DRDY) configuration test \n");
     
+    tmp006_drdyPinConfig(&senzor, TMP006_DRDY_PIN_OFF);
+    TMP006_TEST_ASSERT(TMP006_DRDY_EN_MASK, TMP006_DRDY_PIN_OFF);
     
-//    testTmp006Read = tmp006_read(&senzor, TMP006_MANUFACTURER_ID, &readManufID); //PRVO NEK TI DOBRO OCITA VREDNOST ID-A
-//    testTmp006Read = tmp006_resetDevice(&senzor);
-//    testTmp006Read = tmp006_read(&senzor, TMP006_CONFIG, &readConfig); // 0x7400
-//    
-//    testTmp006Read = tmp006_configConvRate(&senzor, TMP006_CONVERSION_RATE_2_CONV_PER_SEC);
-//    testTmp006Read = tmp006_read(&senzor, TMP006_CONFIG, &readConfig); // 0x7200
-//    
-//    testTmp006Read = tmp006_drdyPinConfig(&senzor, TMP006_DRDY_PIN_ON);
-//    testTmp006Read = tmp006_read(&senzor, TMP006_CONFIG, &readConfig); // 0x7300
+    tmp006_drdyPinConfig(&senzor, TMP006_DRDY_PIN_ON);
+    TMP006_TEST_ASSERT(TMP006_DRDY_EN_MASK, TMP006_DRDY_PIN_ON);
+    
+    //Test of operation mode
+    UARTprintf("Power mode operation test \n");
+    
+    tmp006_operationMode(&senzor, TMP006_POWER_DOWN);
+    TMP006_TEST_ASSERT(TMP006_MOD_MASK, TMP006_POWER_DOWN);
+    
+    tmp006_operationMode(&senzor, TMP006_CONTINUOUS_CONVERSION);
+    TMP006_TEST_ASSERT(TMP006_MOD_MASK, TMP006_CONTINUOUS_CONVERSION);
+    
+    //Reset device test
+    UARTprintf("Reset operation test \n");
+    tmp006_resetDevice(&senzor);
+    TMP006_TEST_ASSERT(0xFFFF, 0x7400); //default value of config reg after reset is 0x7400 
+    
+    tmp006_configConvRate(&senzor, TMP006_CONVERSION_RATE_1_CONV_PER_SEC);
+    tmp006_drdyPinConfig(&senzor, TMP006_DRDY_PIN_ON);
     while(1)
-    {
-        
+    { 
         if (flagReady)
         {
             tmp006_readTemp(&senzor, &temprature);
@@ -142,34 +135,21 @@ int main(void)
         else 
         {
             GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, 0); //LED OFF
-        }
-//        if(flagUartSend)
-//        {
-//            flagUartSend = 0;
-//            uint8_t s = 6;
-//            //UARTCharPut(UART0_BASE, s);//samo proba
-//            UARTprintf("PROBA ");
-//        }
-        
+        }   
     }
-
     return 0;
 }
 
-uint16_t readReg(TMP006_Device *dev, uint8_t reg)
+uint16_t readReg(TMP006_Device *dev, uint8_t addr)
 {
     uint16_t Value, status;
-    status = tmp006_read(dev, reg, &Value);
+    status = tmp006_read(dev, addr, &Value);
     if(status != 0)
     {
         return status;
     }
     return Value;
 }
-
-
-
-
 
 void resultReady(void)
 {
@@ -186,20 +166,4 @@ void togglePortF(void)
 //    pinState = GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_1);
 //    pinState = (pinState ^ GPIO_PIN_1) & 0xFF;
 //    GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, pinState);
-}
-
-void uartHandler(void)
-{
-    uint32_t intStatus;
-    
-    intStatus = UARTIntStatus(UART0_BASE, true);
-    
-    UARTIntClear(UART0_BASE, intStatus); //clear the asserted interrupts
-    uint16_t i = 0; 
-    //rx interrupt happens when there is 4 byte in rx fifo    
-    while(UARTCharsAvail(UART0_BASE)) //loop while there are chars
-    {
-         uartReceived[i] = UARTCharGetNonBlocking(UART0_BASE);
-         i++;
-    }
 }

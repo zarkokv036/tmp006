@@ -38,11 +38,9 @@ void initPorts(void (*portA2IntHandler)(void))
     
     // Register the port-level interrupt handler. This handler is the first
     // level interrupt handler for all the pin interrupts.
-    //
     GPIOIntRegister(GPIO_PORTA_BASE, portA2IntHandler);
     
     // Make pin 2 falling edge triggered interrupts.
-    //
     GPIOIntTypeSet(GPIO_PORTA_BASE, GPIO_PIN_2, GPIO_FALLING_EDGE);
     GPIOIntEnable(GPIO_PORTA_BASE, GPIO_PIN_2);   
 }
@@ -50,20 +48,16 @@ void initPorts(void (*portA2IntHandler)(void))
 void initTimer1sec(void (*pfnHandler)(void))
 {
     // Enable the Timer0 peripheral
-    //
     SysCtlPeripheralEnable(SYSCTL_PERIPH_TIMER0);
-    //
+
     // Wait for the Timer0 module to be ready.
-    //
     while(!SysCtlPeripheralReady(SYSCTL_PERIPH_TIMER0))
     {
     }
-    //
+
     // Configure Timer0 as a full-width periodic timer
-    //
     TimerConfigure(TIMER0_BASE, TIMER_CFG_PERIODIC);    
-    
-    //
+
     // Set the count time for the the periodic timer (TimerA).
     //1 sec
     TimerLoadSet(TIMER0_BASE, TIMER_A, 40000000);
@@ -72,15 +66,11 @@ void initTimer1sec(void (*pfnHandler)(void))
     
     TimerIntEnable(TIMER0_BASE, TIMER_TIMA_TIMEOUT);
 
-    TimerEnable(TIMER0_BASE, TIMER_A);
-    
+    TimerEnable(TIMER0_BASE, TIMER_A); 
 }
 
-
-/* Initialize I2C connected EEPROM */
 void initI2c(uint8_t slaveAddr) 
 {
-    
     //enable I2C module 1
     SysCtlPeripheralEnable(SYSCTL_PERIPH_I2C1);
  
@@ -151,7 +141,6 @@ int i2cWrite(uint8_t slaveAddr, uint8_t reg, uint8_t *data, uint16_t length)
     while(I2CMasterBusy(I2C1_BASE))
     {
     }
-
     for(uint16_t i = 0; i < length; i++)
     {
         I2CMasterDataPut(I2C1_BASE, data[i]);
@@ -167,35 +156,7 @@ int i2cWrite(uint8_t slaveAddr, uint8_t reg, uint8_t *data, uint16_t length)
         {
         }
     }
-
     return 0;
-}
-
-void initUart0(void (*pfnHandler)(void))
-{
-    
-    // Configure GPIO Port A pins 0 and 1 to be used as UART0.
-    //
-    GPIOPinTypeUART(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1);
-    //
-    // Enable UART1 functionality on GPIO Port A pins 0 and 1.
-    //
-    GPIOPinConfigure(GPIO_PA0_U0RX);
-    GPIOPinConfigure(GPIO_PA1_U0TX);
-    
-    UARTConfigSetExpClk(UART0_BASE, SysCtlClockGet(), 115200,
-    (UART_CONFIG_WLEN_8 | UART_CONFIG_STOP_ONE |
-    UART_CONFIG_PAR_NONE)); //115200
-    
-//    UARTFIFOLevelSet(UART0_BASE, UART_FIFO_TX2_8, UART_FIFO_RX4_8); // FIFO 8 chars
-//    UARTFIFOEnable(UART0_BASE); //enable FIFOs
-
-    
-    UARTIntEnable(UART0_BASE, (UART_INT_TX | UART_INT_RX));
-    UARTIntRegister(UART0_BASE, pfnHandler);
-    
-    UARTEnable(UART0_BASE);
-
 }
 
 void initUartPrintf(void)
@@ -208,6 +169,5 @@ void initUartPrintf(void)
     GPIOPinConfigure(GPIO_PA1_U0TX);
     
     UARTStdioConfig(0, 115200, SysCtlClockGet());
-    
 }
 

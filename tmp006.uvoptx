@@ -152,30 +152,15 @@
         <Ww>
           <count>0</count>
           <WinNumber>1</WinNumber>
-          <ItemText>testTmp006Read</ItemText>
+          <ItemText>testTmp006init</ItemText>
         </Ww>
         <Ww>
           <count>1</count>
           <WinNumber>1</WinNumber>
-          <ItemText>testTmp006init</ItemText>
-        </Ww>
-        <Ww>
-          <count>2</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>readConfig</ItemText>
-        </Ww>
-        <Ww>
-          <count>3</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>readManufID</ItemText>
-        </Ww>
-        <Ww>
-          <count>4</count>
-          <WinNumber>1</WinNumber>
           <ItemText>tempInC,0x0A</ItemText>
         </Ww>
         <Ww>
-          <count>5</count>
+          <count>2</count>
           <WinNumber>1</WinNumber>
           <ItemText>temprature,0x10</ItemText>
         </Ww>
