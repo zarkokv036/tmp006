@@ -48,13 +48,13 @@ void initPorts(void (*portA2IntHandler)(void));
 * @brief init of timer, generate interrupt every 1 sec
 * @param pfnHandler pointer to a handler function timer interrupt
 */
-void initTimer1sec(void (*pfnHandler)(void));
+void initTimer1mSec(void (*pfnHandler)(void));
 
 /**
 * @brief init of i2c1, speed 100kbs
 * @param slaveAddr address of slave
 */
-void initI2c(uint8_t slaveAddr);
+void initI2c();
 
 /**
 * @brief i2c write command

@@ -45,7 +45,7 @@ void initPorts(void (*portA2IntHandler)(void))
     GPIOIntEnable(GPIO_PORTA_BASE, GPIO_PIN_2);   
 }
 
-void initTimer1sec(void (*pfnHandler)(void))
+void initTimer1mSec(void (*pfnHandler)(void))
 {
     // Enable the Timer0 peripheral
     SysCtlPeripheralEnable(SYSCTL_PERIPH_TIMER0);
@@ -59,8 +59,8 @@ void initTimer1sec(void (*pfnHandler)(void))
     TimerConfigure(TIMER0_BASE, TIMER_CFG_PERIODIC);    
 
     // Set the count time for the the periodic timer (TimerA).
-    //1 sec
-    TimerLoadSet(TIMER0_BASE, TIMER_A, 40000000);
+    //1ms sec
+    TimerLoadSet(TIMER0_BASE, TIMER_A, 40000);
     
     TimerIntRegister(TIMER0_BASE, TIMER_A, pfnHandler);
     
@@ -69,7 +69,7 @@ void initTimer1sec(void (*pfnHandler)(void))
     TimerEnable(TIMER0_BASE, TIMER_A); 
 }
 
-void initI2c(uint8_t slaveAddr) 
+void initI2c() //izbaci slave addr
 {
     //enable I2C module 1
     SysCtlPeripheralEnable(SYSCTL_PERIPH_I2C1);
