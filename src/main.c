@@ -1,6 +1,6 @@
 /**
 * @file main.c
-* @brief 
+* @brief Test of tmp006 driver
 *
 * @author Zarko Milojicic
 */
@@ -9,7 +9,7 @@
 #include "tmp006.h"
 
 /**
-* Helper macro for parametar checking
+* @brief Helper macro for parametar checking
 */    
 #define TMP006_TEST(expr)                \
     do                                   \
@@ -22,7 +22,7 @@
     } while (0)
     
 /**
-* Helper macro for checking of CONFIG register
+* @brief Helper macro for checking of CONFIG register
 */    
 #define TMP006_TEST_ASSERT(mask,checkValue)                      \
     do                                                           \
@@ -31,26 +31,48 @@
        valueOfReg &= mask;                                       \
        TMP006_TEST(valueOfReg != checkValue);                    \
     }while(0)                                                    \
-
-   
-
     
+/**
+* @brief Helper macro for test running
+* Print PASS if test was success or FAIL if not
+*/
+#define RUN_TEST(testName, testCase, ...)                    \
+    do                                                       \
+    {                                                        \
+        UARTprintf("Test case: %s", (testName));             \
+        bool success = (testCase)(__VA_ARGS__);              \
+        UARTprintf(success ? " -> PASS \n" : " -> FAIL \n"); \
+    } while (0)                                              \
+    
+    
+/** @brief counter of miliseconds, incremented in timer handler*/    
+static volatile uint32_t msCounter = 0; 
+/** @brief counter of received results */    
+static volatile uint32_t resultCounter = 0;
+/** @brief flag is set when result is received */
 static volatile uint8_t resultReadyFlag = 0;
-static int16_t testTmp006init = 0;
-static int16_t temprature = 0;
-static float tempInC = 0;
-static volatile uint32_t msCounter = 0, resultCounter = 0;
-
+    
 static TMP006_Device senzor = {
         .i2cRead = i2cRead,
         .i2cWrite = i2cWrite   
     };
+
+/**
+* @brief function for system set up before every test
+*/    
+void setUp(void)
+{
+    msCounter = 0;
+    resultCounter = 0;
+    resultReadyFlag = 0;
+}
     
 /**
-* @brief check if temperature is in reasonable values
-* @return true if temp is between 
+* @brief Check if temperature is between 18 and 26 celsius degrees.
+*
+* @return true if temperature is between 18 and 26 celsius degrees, false if not.
 */
-bool checkTemperatureValue();
+bool checkTemperatureValue(void);
 
 /**
 * @brief handler for timer, 1 ms timer
@@ -59,90 +81,63 @@ void timerHandler(void);
 
 /**
 * @brief handler for edge interrupt on PORTA2
+*
+* Announce that result is ready via flag.
 */
 void resultReady(void);
 
 /**
 * @brief Read value of specified register
+* 
+* Read 16-bit value of register with specified address.
+*
 * @param dev Pointer to the TMP006 device structure
 * @param addr address of register you want to read
+* @return 16-bit value of register.
 */    
 uint16_t readReg(TMP006_Device *dev, uint8_t addr);
 
 /**
-* @brief run tests and print if success or fail
-* @param testCase Pointer to function of test case
-* @param nameOfTest pointer to name of test
-*/
-void runTest(bool (*testCase)(void), const char *nameOfTest);
-
-/**
-* @brief test if values of commands are written into config reg
+* @brief test if values of commands are written into config register
+*
+* @return true if test success or false if not
 */
 bool test_writeIntoConfig(void);
 
 /**
 * @brief reading manufacturer id from device
+*
+* @return true if test success or false if not
 */
 bool test_readManufId(void);
 
 /**
-* @brief test of 1 conv/sec with interrupt pin enabled
+* @brief test of different conversion rate with enabled interrupt pin
+*
+* @param convRate speed of conversion 
+* @param numberOfResults number of result you want to check at determined rate
+* @return true if test success or false if not
 */
-bool test_readTemp1convPerSecIntOn(void);
+bool test_customConvRateIntOn(enum TMP006_ConversionRate convRate, uint16_t numberOfResults);
 
 /**
-* @brief test of 2 conv/sec with interrupt pin enabled
+* @brief test of different conversion rate with disabled interrupt pin
+*
+* @param convRate speed of conversion 
+* @param numberOfResults number of result you want to check at determined rate
+* @return true if test success or false if not
 */
-bool test_readTemp2convPerSecIntOn(void);
+bool test_customConvRateIntOff(enum TMP006_ConversionRate convRate, uint16_t numberOfResults);
 
 /**
-* @brief test of 4 conv/sec with interrupt pin enabled
-*/
-bool test_readTemp4convPerSecIntOn(void);
-
-/**
-* @brief test of 0.5 conv/sec with interrupt pin enabled
-*/
-bool test_readTemp05convPerSecIntOn(void);
-
-/**
-* @brief test of 0.25 conv/sec with interrupt pin enabled
-*/
-bool test_readTemp025convPerSecIntOn(void);
-
-/**
-* @brief test of 1 conv/sec with interrupt pin enabled
-*/
-bool test_readTemp1convPerSecIntOff(void);
-
-/**
-* @brief test of 2 conv/sec with interrupt pin enabled
-*/
-bool test_readTemp2convPerSecIntOff(void);
-
-/**
-* @brief test of 4 conv/sec with interrupt pin enabled
-*/
-bool test_readTemp4convPerSecIntOff(void);
-
-/**
-* @brief test of 0.5 conv/sec with interrupt pin enabled
-*/
-bool test_readTemp05convPerSecIntOff(void);
-
-/**
-* @brief test of 0.25 conv/sec with interrupt pin enabled
-*/
-bool test_readTemp025convPerSecIntOff(void);
-
-/**
-* @brief test power down operation mode with interrupt enabled (should not give any result)
+* @brief test power-down operation mode with interrupt enabled
+* @return true if test success or false if not
 */
 bool test_powerDownModeIntOn(void);
 
 /**
-* @brief test power down operation mode with interrupt disabled (should not give any result)
+* @brief test power-down operation mode with interrupt disabled
+* @return true if test success or false if not
 */
 bool test_powerDownModeIntOff(void);
 
@@ -155,58 +150,43 @@ int main(void)
     initTimer1mSec(timerHandler);
     initUartPrintf();
     
-    testTmp006init = tmp006_init(&senzor, TMP006_PIN_LOW, TMP006_PIN_LOW);
+    tmp006_init(&senzor, TMP006_PIN_LOW, TMP006_PIN_LOW);
     
     UARTprintf("~~~TEST~~~ \n");
     
-    runTest(test_readManufId, "Read manufacturer ID");
+    RUN_TEST("Read manufacturer ID", test_readManufId);
     
-    runTest(test_writeIntoConfig, "Writing into config register");
+    RUN_TEST("Writing into config register", test_writeIntoConfig);
     
     //test conversion rate with interrupt enabled
-    runTest(test_readTemp1convPerSecIntOn, "Check 1 conversion per second rate with interrupt enabled (wait)");
-    runTest(test_readTemp2convPerSecIntOn, "Check 2 conversion per second rate with interrupt enabled (wait)");
-    runTest(test_readTemp4convPerSecIntOn, "Check 4 conversion per second rate with interrupt enabled (wait)");
-    runTest(test_readTemp05convPerSecIntOn, "Check 0.5 conversion per second rate with interrupt enabled (wait)");
-    runTest(test_readTemp025convPerSecIntOn, "Check 0.25 conversion per second rate with interrupt enabled (wait)");
+    RUN_TEST("Check 1 conversion per second rate with interrupt enabled (wait)", test_customConvRateIntOn, TMP006_CONVERSION_RATE_1_CONV_PER_SEC, 5);
+    RUN_TEST("Check 2 conversion per second rate with interrupt enabled (wait)", test_customConvRateIntOn, TMP006_CONVERSION_RATE_2_CONV_PER_SEC, 5);
+    RUN_TEST("Check 4 conversion per second rate with interrupt enabled (wait)", test_customConvRateIntOn, TMP006_CONVERSION_RATE_4_CONV_PER_SEC, 5);
+    RUN_TEST("Check 0.5 conversion per second rate with interrupt enabled (wait)", test_customConvRateIntOn, TMP006_CONVERSION_RATE_0_5_CONV_PER_SEC, 3);
+    RUN_TEST("Check 0.25 conversion per second rate with interrupt enabled (wait)", test_customConvRateIntOn, TMP006_CONVERSION_RATE_0_25_CONV_PER_SEC, 2);
     
     //test conversion rate with interrupt disabled
-    runTest(test_readTemp1convPerSecIntOff, "Check 1 conversion per second rate with interrupt disabled (wait)");
-    runTest(test_readTemp2convPerSecIntOff, "Check 2 conversion per second rate with interrupt disabled (wait)");
-    runTest(test_readTemp4convPerSecIntOff, "Check 4 conversion per second rate with interrupt disabled (wait)");
-    runTest(test_readTemp05convPerSecIntOff, "Check 0.5 conversion per second rate with interrupt disabled (wait)");
-    runTest(test_readTemp025convPerSecIntOff, "Check 0.25 conversion per second rate with interrupt disabled (wait)");
+    RUN_TEST("Check 1 conversion per second rate with interrupt disabled (wait)", test_customConvRateIntOff, TMP006_CONVERSION_RATE_1_CONV_PER_SEC, 5);
+    RUN_TEST("Check 2 conversion per second rate with interrupt disabled (wait)", test_customConvRateIntOff, TMP006_CONVERSION_RATE_2_CONV_PER_SEC, 5);
+    RUN_TEST("Check 4 conversion per second rate with interrupt disabled (wait)", test_customConvRateIntOff, TMP006_CONVERSION_RATE_4_CONV_PER_SEC, 5);
+    RUN_TEST("Check 0.5 conversion per second rate with interrupt disabled (wait)", test_customConvRateIntOff, TMP006_CONVERSION_RATE_0_5_CONV_PER_SEC, 3);
+    RUN_TEST("Check 0.25 conversion per second rate with interrupt disabled (wait)", test_customConvRateIntOff,TMP006_CONVERSION_RATE_0_25_CONV_PER_SEC, 2);
     
     //test power down operation mode
-    runTest(test_powerDownModeIntOn, "Check power down mode with interrupt enabled (wait)");
-    runTest(test_powerDownModeIntOff, "Check power down mode with interrupt disabled (wait)");
+    RUN_TEST("Check power down mode with interrupt enabled (wait)", test_powerDownModeIntOn);
+    RUN_TEST( "Check power down mode with interrupt disabled (wait)", test_powerDownModeIntOff);
     
     tmp006_resetDevice(&senzor);
-    
-    while(1)
-    { 
-        if (resultReadyFlag)
-        {   
-            tmp006_readTemp(&senzor, &temprature);
-            tempInC = ((float)temprature * 0.03125);
-            resultReadyFlag = 0;
-        }
-        
-        if ((tempInC > 18) && (tempInC < 26))
-        {
-            GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, GPIO_PIN_1); //LED ON
-        }
-        else 
-        {
-            GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, 0); //LED OFF
-        }   
-    }
+
     return 0;
 } //MAIN
 
 
-bool checkTemperatureValue()
+bool checkTemperatureValue(void)
 {
+    int16_t temprature = 0;
+    float tempInC = 0;
+    
     if (resultReadyFlag)
     {   
         tmp006_readTemp(&senzor, &temprature);
@@ -220,7 +200,6 @@ bool checkTemperatureValue()
     }
     return true;
 }
-
 
 uint16_t readReg(TMP006_Device *dev, uint8_t addr)
 {
@@ -245,14 +224,6 @@ void timerHandler(void)
 {
     TimerIntClear(TIMER0_BASE, TIMER_TIMA_TIMEOUT);
     msCounter++ ;
-}
-
-
-void runTest(bool (*testCase)(void), const char *nameOfTest)
-{
-    UARTprintf("Test case: %s",nameOfTest);
-    bool success = testCase();
-    UARTprintf(success ? " -> PASS \n" : " -> FAIL \n");
 }
 
 bool test_readManufId(void)
@@ -293,17 +264,39 @@ bool test_writeIntoConfig(void)
     return true;
 }
 
-bool test_readTemp1convPerSecIntOn(void)
+bool test_customConvRateIntOn(enum TMP006_ConversionRate convRate, uint16_t numberOfResults)
 {
     bool tempValue;
+    
+    setUp();
     tmp006_resetDevice(&senzor);
-    tmp006_configConvRate(&senzor, TMP006_CONVERSION_RATE_1_CONV_PER_SEC);
+    tmp006_configConvRate(&senzor, convRate);
     tmp006_drdyPinConfig(&senzor, TMP006_DRDY_PIN_ON);
     
-    resultCounter = 0;
-    msCounter = 0;
+    float multipleFactor = 0;
     
-    while (resultCounter < 5)
+    if (convRate == TMP006_CONVERSION_RATE_0_25_CONV_PER_SEC)
+    {
+        multipleFactor = 4;
+    }
+    else if (convRate == TMP006_CONVERSION_RATE_0_5_CONV_PER_SEC)
+    {
+        multipleFactor = 2;
+    }
+    else if (convRate == TMP006_CONVERSION_RATE_1_CONV_PER_SEC)
+    {
+        multipleFactor = 1;
+    }
+    else if (convRate == TMP006_CONVERSION_RATE_2_CONV_PER_SEC)
+    {
+        multipleFactor = 0.5;
+    }
+    else if (convRate == TMP006_CONVERSION_RATE_4_CONV_PER_SEC)
+    {
+        multipleFactor = 0.25;
+    }
+    
+    while (resultCounter < numberOfResults)
     {
         tempValue = checkTemperatureValue();
         if (!tempValue)
@@ -312,34 +305,7 @@ bool test_readTemp1convPerSecIntOn(void)
         }
     }
     
-    if(msCounter > (5.05 * 1000))
-    {
-        return false;
-    }
-    
-    return true;  
-}
-
-bool test_readTemp2convPerSecIntOn(void)
-{
-    bool tempValue;
-    tmp006_resetDevice(&senzor);
-    tmp006_configConvRate(&senzor, TMP006_CONVERSION_RATE_2_CONV_PER_SEC);
-    tmp006_drdyPinConfig(&senzor, TMP006_DRDY_PIN_ON);
-    
-    resultCounter = 0;
-    msCounter = 0;
-    
-    while (resultCounter < 10)
-    {
-        tempValue = checkTemperatureValue();
-        if (!tempValue)
-        {
-            return false;
-        }
-    }
-    
-    if(msCounter > (5.05 * 1000))
+    if(msCounter > (((numberOfResults * multipleFactor) + 0.05) * 1000))
     {
         return false;
     }
@@ -347,98 +313,41 @@ bool test_readTemp2convPerSecIntOn(void)
     return true; 
 }
 
-bool test_readTemp4convPerSecIntOn(void)
-{
-    bool tempValue;
-    tmp006_resetDevice(&senzor);
-    tmp006_configConvRate(&senzor, TMP006_CONVERSION_RATE_4_CONV_PER_SEC);
-    tmp006_drdyPinConfig(&senzor, TMP006_DRDY_PIN_ON);
-    
-    resultCounter = 0;
-    msCounter = 0;
-    
-    while (resultCounter < 20)
-    {
-        tempValue = checkTemperatureValue();
-        if (!tempValue)
-        {
-            return false;
-        }
-    }
-    
-    if (msCounter > (5.05 * 1000))
-    {
-        return false;
-    }
-    
-    return true; 
-}
 
-bool test_readTemp05convPerSecIntOn(void)
-{
-    bool tempValue;
-    tmp006_resetDevice(&senzor);
-    tmp006_configConvRate(&senzor, TMP006_CONVERSION_RATE_0_5_CONV_PER_SEC);
-    tmp006_drdyPinConfig(&senzor, TMP006_DRDY_PIN_ON);
-    
-    resultCounter = 0;
-    msCounter = 0;
-    
-    while (resultCounter < 5)
-    {
-        tempValue = checkTemperatureValue();
-        if (!tempValue)
-        {
-            return false;
-        }
-    }
-    
-    if (msCounter > (10.05 * 1000))
-    {
-        return false;
-    }
-    
-    return true; 
-}
 
-bool test_readTemp025convPerSecIntOn(void)
-{
-    bool tempValue;
-    tmp006_resetDevice(&senzor);
-    tmp006_configConvRate(&senzor, TMP006_CONVERSION_RATE_0_25_CONV_PER_SEC);
-    tmp006_drdyPinConfig(&senzor, TMP006_DRDY_PIN_ON);
-    
-    resultCounter = 0;
-    msCounter = 0;
-    
-    while (resultCounter < 3)
-    {
-        tempValue = checkTemperatureValue();
-        if (!tempValue)
-        {
-            return false;
-        }
-    }
-    
-    if (msCounter > (12.1 * 1000))
-    {
-        return false;
-    }
-    
-    return true; 
-}
-
-bool test_readTemp1convPerSecIntOff(void)
+bool test_customConvRateIntOff(enum TMP006_ConversionRate convRate, uint16_t numberOfResults)
 {
     bool tempValue, resultReady;
+    
+    setUp();
     tmp006_resetDevice(&senzor);
-    tmp006_configConvRate(&senzor, TMP006_CONVERSION_RATE_1_CONV_PER_SEC);
+    tmp006_configConvRate(&senzor, convRate);
     tmp006_drdyPinConfig(&senzor, TMP006_DRDY_PIN_OFF);
     
-    resultCounter = 0;
-    msCounter = 0;
+    float multipleFactor = 0;
     
-    while (resultCounter < 5)
+    if (convRate == TMP006_CONVERSION_RATE_0_25_CONV_PER_SEC)
+    {
+        multipleFactor = 4;
+    }
+    else if (convRate == TMP006_CONVERSION_RATE_0_5_CONV_PER_SEC)
+    {
+        multipleFactor = 2;
+    }
+    else if (convRate == TMP006_CONVERSION_RATE_1_CONV_PER_SEC)
+    {
+        multipleFactor = 1;
+    }
+    else if (convRate == TMP006_CONVERSION_RATE_2_CONV_PER_SEC)
+    {
+        multipleFactor = 0.5;
+    }
+    else if (convRate == TMP006_CONVERSION_RATE_4_CONV_PER_SEC)
+    {
+        multipleFactor = 0.25;
+    }
+    
+    while (resultCounter < numberOfResults)
     {
         tmp006_isResultReady(&senzor, &resultReady);
         if (resultReady)
@@ -452,140 +361,7 @@ bool test_readTemp1convPerSecIntOff(void)
             }
         }
     }
-    
-    if (msCounter > (5.05 * 1000))
-    {
-        return false;
-    }
-    
-    return true; 
-}
-
-bool test_readTemp2convPerSecIntOff(void)
-{
-    bool tempValue, resultReady;
-    tmp006_resetDevice(&senzor);
-    tmp006_configConvRate(&senzor, TMP006_CONVERSION_RATE_2_CONV_PER_SEC);
-    tmp006_drdyPinConfig(&senzor, TMP006_DRDY_PIN_OFF);
-    
-    resultCounter = 0;
-    msCounter = 0;
-    
-    while (resultCounter < 10)
-    {
-        tmp006_isResultReady(&senzor, &resultReady);
-        if (resultReady)
-        {
-            resultCounter++;
-            resultReadyFlag = 1;
-            tempValue = checkTemperatureValue();
-            if(!tempValue)
-            {
-                return false;
-            }
-        }
-    }
-    
-    if (msCounter > (5.05 * 1000))
-    {
-        return false;
-    }
-    
-    return true; 
-}
-
-bool test_readTemp4convPerSecIntOff(void)
-{
-    bool tempValue, resultReady;
-    tmp006_resetDevice(&senzor);
-    tmp006_configConvRate(&senzor, TMP006_CONVERSION_RATE_4_CONV_PER_SEC);
-    tmp006_drdyPinConfig(&senzor, TMP006_DRDY_PIN_OFF);
-    
-    resultCounter = 0;
-    msCounter = 0;
-    
-    while (resultCounter < 20)
-    {
-        tmp006_isResultReady(&senzor, &resultReady);
-        if (resultReady)
-        {
-            resultCounter++;
-            resultReadyFlag = 1;
-            tempValue = checkTemperatureValue();
-            if(!tempValue)
-            {
-                return false;
-            }
-        }
-    }
-    
-    if (msCounter > (5.05 * 1000))
-    {
-        return false;
-    }
-    
-    return true; 
-}
-
-bool test_readTemp05convPerSecIntOff(void)
-{
-    bool tempValue, resultReady;
-    tmp006_resetDevice(&senzor);
-    tmp006_configConvRate(&senzor, TMP006_CONVERSION_RATE_0_5_CONV_PER_SEC);
-    tmp006_drdyPinConfig(&senzor, TMP006_DRDY_PIN_OFF);
-    
-    resultCounter = 0;
-    msCounter = 0;
-    
-    while (resultCounter < 5)
-    {
-        tmp006_isResultReady(&senzor, &resultReady);
-        if (resultReady)
-        {
-            resultCounter++;
-            resultReadyFlag = 1;
-            tempValue = checkTemperatureValue();
-            if(!tempValue)
-            {
-                return false;
-            }
-        }
-    }
-    
-    if (msCounter > (10.05 * 1000))
-    {
-        return false;
-    }
-    
-    return true; 
-}
-
-bool test_readTemp025convPerSecIntOff(void)
-{
-    bool tempValue, resultReady;
-    tmp006_resetDevice(&senzor);
-    tmp006_configConvRate(&senzor, TMP006_CONVERSION_RATE_0_25_CONV_PER_SEC);
-    tmp006_drdyPinConfig(&senzor, TMP006_DRDY_PIN_OFF);
-    
-    resultCounter = 0;
-    msCounter = 0;
-    
-    while (resultCounter < 3)
-    {
-        tmp006_isResultReady(&senzor, &resultReady);
-        if (resultReady)
-        {
-            resultCounter++;
-            resultReadyFlag = 1;
-            tempValue = checkTemperatureValue();
-            if(!tempValue)
-            {
-                return false;
-            }
-        }
-    }
-    
-    if (msCounter > (12.1 * 1000))
+    if (msCounter > (((numberOfResults * multipleFactor) + 0.05) * 1000))
     {
         return false;
     }
@@ -595,12 +371,10 @@ bool test_readTemp025convPerSecIntOff(void)
 
 bool test_powerDownModeIntOn(void)
 {
+    setUp();
     tmp006_configConvRate(&senzor, TMP006_CONVERSION_RATE_1_CONV_PER_SEC);
     tmp006_drdyPinConfig(&senzor, TMP006_DRDY_PIN_ON);
     tmp006_operationMode(&senzor, TMP006_POWER_DOWN);
-    
-    resultCounter = 0;
-    msCounter = 0;
     
     while (msCounter < (5 * 1000))
     {
@@ -618,12 +392,10 @@ bool test_powerDownModeIntOff(void)
 {
     bool tempValue, resultReady;
     
+    setUp();
     tmp006_configConvRate(&senzor, TMP006_CONVERSION_RATE_1_CONV_PER_SEC);
     tmp006_drdyPinConfig(&senzor, TMP006_DRDY_PIN_OFF);
     tmp006_operationMode(&senzor, TMP006_POWER_DOWN);
-    
-    resultCounter = 0;
-    msCounter = 0;
     
     while (msCounter < (5 * 1000))
     {
@@ -639,7 +411,6 @@ bool test_powerDownModeIntOff(void)
             }
         }
     }
-    
     if(resultCounter > 0)
     {
         return false;
