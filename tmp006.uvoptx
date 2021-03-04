@@ -152,17 +152,17 @@
         <Ww>
           <count>0</count>
           <WinNumber>1</WinNumber>
-          <ItemText>testTmp006init</ItemText>
+          <ItemText>flag1</ItemText>
         </Ww>
         <Ww>
           <count>1</count>
           <WinNumber>1</WinNumber>
-          <ItemText>tempInC,0x0A</ItemText>
+          <ItemText>flag2</ItemText>
         </Ww>
         <Ww>
           <count>2</count>
           <WinNumber>1</WinNumber>
-          <ItemText>temprature,0x10</ItemText>
+          <ItemText>resultCounter</ItemText>
         </Ww>
       </WatchWindow1>
       <MemoryWindow1>
