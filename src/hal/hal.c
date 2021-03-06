@@ -1,6 +1,6 @@
 /**
 * @file hal.c
-* @brief init file for tm4c123g
+* @brief init of platform
 *
 * @author Zarko Milojicic
 */
@@ -11,9 +11,7 @@ int hal_init(void)
 {
     initSystemClock_40MHz();
     enablePeripheralsClock();
-    //initPorts(resultReady);
     initI2c();
-    //initTimer1mSec(timerHandler);
     initUartPrintf();
     
     return 0;
@@ -22,14 +20,17 @@ int hal_init(void)
 int hal_configure1msInterrupt(void (*interruptHandler)(void))
 {
     initTimer1mSec(interruptHandler);
+    
     return 0;
 }
 
 int hal_configureInterruptPin(void (*interruptHandler)(void))
 {
     initPorts(interruptHandler);
+    
     return 0;
 }
+
 
 
 

@@ -1,5 +1,5 @@
-./objects/main.o: src\main.c src\test\test.h src\hal\hal.h \
-  src\hal\tm4c_init.h C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
+./objects/hal.o: src\hal\hal.c src\hal\tm4c_init.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h \
   C:\ti\TivaWare_C_Series-2.2.0.295\inc\..\driverlib\sysctl.h \
   C:\ti\TivaWare_C_Series-2.2.0.295\inc\..\driverlib\gpio.h \

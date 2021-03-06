@@ -69,7 +69,7 @@ void initTimer1mSec(void (*pfnHandler)(void))
     TimerEnable(TIMER0_BASE, TIMER_A); 
 }
 
-void initI2c() //izbaci slave addr
+void initI2c()
 {
     //enable I2C module 1
     SysCtlPeripheralEnable(SYSCTL_PERIPH_I2C1);
