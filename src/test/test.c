@@ -14,32 +14,18 @@
 /**
 * @brief Helper macro for parametar checking
 */    
-#define PARAM_TEST(expr)                \
+#define TEST_ASSERT(expr)                 \
     do                                   \
     {                                    \
-        if (expr)                        \
+        bool e = expr;                   \
+        if (!e)                          \
         {                                \
             return false;                \
         }                                \
                                          \
     } while (0)
     
-/**
-* @brief Helper macro for checking of CONFIG register
-*/    
-#define CONFIG_REG_TEST_ASSERT(mask,checkValue)                  \
-    do                                                           \
-    {                                                            \
-       uint16_t valueOfReg;                                      \
-       int status = tmp006_read(&senzor, TMP006_CONFIG, &valueOfReg);         \
-       if (status != 0)                                          \
-       {                                                         \
-           return false;                                         \
-       }                                                         \
-       valueOfReg &= mask;                                       \
-       PARAM_TEST(valueOfReg != checkValue);                     \
-    }while(0)                                                    \
-    
+
 /**
 * @brief Helper macro for test running
 * Print PASS if test was success or FAIL if not
@@ -47,9 +33,9 @@
 #define RUN_TEST(testName, testCase, ...)                    \
     do                                                       \
     {                                                        \
-        PRINTF("Test case: %s", (testName));             \
+        PRINTF("Test case: %s", (testName));                 \
         bool success = (testCase)(__VA_ARGS__);              \
-        PRINTF(success ? " -> PASS \n" : " -> FAIL \n"); \
+        PRINTF(success ? " -> PASS \n" : " -> FAIL \n");     \
     } while (0)                                              \
     
     
@@ -61,35 +47,25 @@ static volatile uint32_t resultCounter = 0;
 static volatile uint8_t resultReadyFlag = 0;
     
 static TMP006_Device senzor = {
-        .i2cRead = i2cRead,
-        .i2cWrite = i2cWrite   
+        .i2cRead = hal_i2cRead,
+        .i2cWrite = hal_i2cWrite   
     };
 
 /**
 * @brief handler for edge interrupt on pin.
-* Announce that result is ready via resultReadyFlag.
-*    
-* @note dont edit lines with resultCounter and resultReadyFlag
+* Announce that result is ready via resultReadyFlag and counts the results.
 */
 static void pinInterruptHandler(void)
 {
-    //clear interrupt 
-    GPIOIntClear(GPIO_PORTA_BASE, GPIO_INT_PIN_2);
-    
     resultCounter++ ;
     resultReadyFlag = 1;
 }
 
 /**
 * @brief handler for timer, 1 ms timer
-*
-* @note dont edit line with msCounter.
 */
 static void timerHandler(void)
 {
-    //clear interrupt 
-    TimerIntClear(TIMER0_BASE, TIMER_TIMA_TIMEOUT);
-    
     msCounter++ ;
 }    
     
@@ -101,6 +77,30 @@ static void setUp(void)
     msCounter = 0;
     resultCounter = 0;
     resultReadyFlag = 0;
+}
+
+/**
+* @brief check value at required position in the CONFIG register.
+*
+* @param mask Position of values in config register you want to check.
+* @param checkValue Value you expect to be in register at required position.
+* @return true if CheckValue is at required position, false if it's not.
+*/
+static bool checkConfigReg(uint16_t mask, uint16_t checkValue)
+{
+    uint16_t valueOfReg;
+    
+    int status = tmp006_read(&senzor, TMP006_CONFIG, &valueOfReg);
+    
+    if (status != 0)                     
+    {                                    
+        return false;                    
+    } 
+    
+    valueOfReg &= mask;                  
+    TEST_ASSERT(valueOfReg == checkValue);
+    
+    return true;
 }
 
 /**
@@ -124,7 +124,7 @@ static bool checkTemperatureValue(void)
     
     int16_t temprature = 0;
     int16_t status = tmp006_readTemp(&senzor, &temprature);
-    PARAM_TEST(status != 0); 
+    TEST_ASSERT(status == 0); 
     
     const float tempInC = (float)temprature * 0.03125f;
     resultReadyFlag = 0;
@@ -142,8 +142,8 @@ static bool test_readManufId(void)
     uint16_t regValue;
     int status = tmp006_read(&senzor, TMP006_MANUFACTURER_ID, &regValue);
     
-    PARAM_TEST(status != 0);
-    PARAM_TEST(regValue != TMP006_MANUF_ID_VALUE);
+    TEST_ASSERT(status == 0);
+    TEST_ASSERT(regValue == TMP006_MANUF_ID_VALUE);
     
     return true;
 }
@@ -159,26 +159,26 @@ static bool test_writeIntoConfig(void)
     for(uint16_t i = 0; i <= (TMP006_CONVERSION_RATE_0_25_CONV_PER_SEC >> 9) ; i++)
     {
         tmp006_configConvRate(&senzor, (i << 9));
-        CONFIG_REG_TEST_ASSERT(TMP006_CR_MASK, (i << 9));   //
+        TEST_ASSERT(checkConfigReg(TMP006_CR_MASK, (i << 9)));   //
     }
      
     //Test of DRDY pin mode
     tmp006_drdyPinConfig(&senzor, TMP006_DRDY_PIN_OFF);
-    CONFIG_REG_TEST_ASSERT(TMP006_DRDY_EN_MASK, TMP006_DRDY_PIN_OFF);
+    TEST_ASSERT(checkConfigReg(TMP006_DRDY_EN_MASK, TMP006_DRDY_PIN_OFF));
     
     tmp006_drdyPinConfig(&senzor, TMP006_DRDY_PIN_ON);
-    CONFIG_REG_TEST_ASSERT(TMP006_DRDY_EN_MASK, TMP006_DRDY_PIN_ON);
+    TEST_ASSERT(checkConfigReg(TMP006_DRDY_EN_MASK, TMP006_DRDY_PIN_ON));
     
     //Test of operation mode
     tmp006_operationMode(&senzor, TMP006_POWER_DOWN);
-    CONFIG_REG_TEST_ASSERT(TMP006_MOD_MASK, TMP006_POWER_DOWN);
+    TEST_ASSERT(checkConfigReg(TMP006_MOD_MASK, TMP006_POWER_DOWN));
     
     tmp006_operationMode(&senzor, TMP006_CONTINUOUS_CONVERSION);
-    CONFIG_REG_TEST_ASSERT(TMP006_MOD_MASK, TMP006_CONTINUOUS_CONVERSION);
+    TEST_ASSERT(checkConfigReg(TMP006_MOD_MASK, TMP006_CONTINUOUS_CONVERSION));
     
     //Reset device test
     tmp006_resetDevice(&senzor);
-    CONFIG_REG_TEST_ASSERT(0xFFFF, 0x7400); //default value of config reg after reset is 0x7400 
+    TEST_ASSERT(checkConfigReg(0xFFFF, 0x7400)); //default value of config reg after reset is 0x7400 
     
     return true;
 }
@@ -332,6 +332,8 @@ static bool test_powerDownModeIntOff(void)
 
     return true;
 }
+
+
 
 void test_run(void)
 {

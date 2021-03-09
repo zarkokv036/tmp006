@@ -48,6 +48,26 @@ int hal_configure1msInterrupt(void (*interruptHandler)(void));
 */
 int hal_configureInterruptPin(void (*interruptHandler)(void));
 
+/**
+* @brief i2c write command
+* @param slaveAddr address of slave
+* @param reg address of register you want to write into
+* @param data pointer to a data you want to write into slave
+* @param length length of data you want to send
+* @return 0 on success or error code on failure.
+*/
+int hal_i2cRead(uint8_t slaveAddr, uint8_t reg, uint8_t *data, uint16_t length);
+
+/**
+* @brief i2c write command
+*
+* @param slaveAddr address of slave
+* @param reg address of register you want to write into
+* @param data pointer to a data you want to write into slave
+* @param length length of data you want to send
+* @return 0 on success or error code on failure.
+*/
+int hal_i2cWrite(uint8_t slaveAddr, uint8_t reg, uint8_t *data, uint16_t length);
 
 
 #ifdef __cplusplus
