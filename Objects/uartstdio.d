@@ -1,4 +1,4 @@
-./objects/uartstdio.o: src\hal\uartstdio.c \
+./objects/uartstdio.o: src\port\tm4c123\uartstdio.c \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdarg.h \

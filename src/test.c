@@ -8,8 +8,8 @@
 
 #include <stdint.h>
 #include <stdbool.h>
-#include "../driver/tmp006.h"
-#include "../hal/hal.h"
+#include "tmp006/tmp006.h"
+#include "platform.h"
 
 /**
 * @brief Helper macro for parametar checking

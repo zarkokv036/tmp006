@@ -5,8 +5,8 @@
 * @author Zarko Milojicic
 */
 
-#include "test/test.h"
-#include "hal/hal.h"
+#include "test.h"
+#include "platform.h"
 
 int main(void)
 {

@@ -1,14 +1,14 @@
 /**
-* @file hal.h
+* @file platform.h
 * @brief init of platform
 *
 * @author Zarko Milojicic
 */
 
-#include "tm4c_init.h" 
+#include "port/tm4c123/tm4c_init.h" 
 
-#ifndef HAL_H
-#define  HAL_H
+#ifndef PLATFORM_H
+#define  PLATFORM_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -18,7 +18,7 @@ extern "C" {
 * @brief Wraper for printf function
 * @note Change the UARTprintf with appropriate name of your printf function
 */
-#define PRINTF(...)   UARTprintf(__VA_ARGS__)
+#define PRINTF(fmt,...)   UARTprintf((fmt), ##__VA_ARGS__)
 
 /**
 * @brief initialization of tm4c123
@@ -74,4 +74,4 @@ int hal_i2cWrite(uint8_t slaveAddr, uint8_t reg, uint8_t *data, uint16_t length)
 }
 #endif
 
-#endif //HAL_H
+#endif //PLATFORM_H

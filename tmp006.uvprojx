@@ -389,14 +389,19 @@
               <FilePath>.\src\main.c</FilePath>
             </File>
             <File>
-              <FileName>tmp006.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\driver\tmp006.c</FilePath>
+              <FileName>platform.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\platform.h</FilePath>
             </File>
             <File>
-              <FileName>tmp006.h</FileName>
+              <FileName>test.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\test.c</FilePath>
+            </File>
+            <File>
+              <FileName>test.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\driver\tmp006.h</FilePath>
+              <FilePath>.\src\test.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -411,52 +416,47 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>test</GroupName>
+          <GroupName>port</GroupName>
           <Files>
             <File>
-              <FileName>test.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\test\test.h</FilePath>
-            </File>
-            <File>
-              <FileName>test.c</FileName>
+              <FileName>platform_tm4c.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\test\test.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>hal</GroupName>
-          <Files>
-            <File>
-              <FileName>hal.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\hal\hal.c</FilePath>
-            </File>
-            <File>
-              <FileName>hal.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\hal\hal.h</FilePath>
+              <FilePath>.\src\port\tm4c123\platform_tm4c.c</FilePath>
             </File>
             <File>
               <FileName>tm4c_init.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\hal\tm4c_init.c</FilePath>
+              <FilePath>.\src\port\tm4c123\tm4c_init.c</FilePath>
             </File>
             <File>
               <FileName>tm4c_init.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\hal\tm4c_init.h</FilePath>
+              <FilePath>.\src\port\tm4c123\tm4c_init.h</FilePath>
             </File>
             <File>
               <FileName>uartstdio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\hal\uartstdio.c</FilePath>
+              <FilePath>.\src\port\tm4c123\uartstdio.c</FilePath>
             </File>
             <File>
               <FileName>uartstdio.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\hal\uartstdio.h</FilePath>
+              <FilePath>.\src\port\tm4c123\uartstdio.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>tmp006</GroupName>
+          <Files>
+            <File>
+              <FileName>tmp006.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\tmp006\tmp006.c</FilePath>
+            </File>
+            <File>
+              <FileName>tmp006.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\tmp006\tmp006.h</FilePath>
             </File>
           </Files>
         </Group>

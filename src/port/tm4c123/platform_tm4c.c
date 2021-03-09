@@ -1,13 +1,11 @@
 /**
-* @file hal.c
+* @file platform_tm4c.c
 * @brief init of platform
 *
 * @author Zarko Milojicic
 */
 
 #include "tm4c_init.h" 
-
-
 
 int hal_init(void)
 {

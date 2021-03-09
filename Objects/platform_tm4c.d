@@ -1,4 +1,4 @@
-./objects/main.o: src\main.c src\test.h src\platform.h \
+./objects/platform_tm4c.o: src\port\tm4c123\platform_tm4c.c \
   src\port\tm4c123\tm4c_init.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h \
