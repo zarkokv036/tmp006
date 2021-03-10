@@ -1,7 +1,7 @@
-./objects/test.o: src\test.c src\tmp006\tmp006.h \
+./objects/test_framework.o: src\test_framework.c \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h src\test.h \
-  src\platform.h src\port\tm4c123\tm4c_init.h \
+  src\tmp006\tmp006.h src\platform.h src\port\tm4c123\tm4c_init.h \
   C:\ti\TivaWare_C_Series-2.2.0.295\inc\..\driverlib\sysctl.h \
   C:\ti\TivaWare_C_Series-2.2.0.295\inc\..\driverlib\gpio.h \
   C:\ti\TivaWare_C_Series-2.2.0.295\inc\..\driverlib\pin_map.h \

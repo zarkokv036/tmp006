@@ -30,7 +30,7 @@ extern "C" {
 *
 * @return 0 on sucess, 
 */
-int hal_init(void);
+int platform_init(void);
 
 /**
 * @brief init of 1 ms timer
@@ -38,7 +38,7 @@ int hal_init(void);
 * @param interruptHandler pointer to timer handler function
 * @return 0 on sucess, 
 */
-int hal_configure1msInterrupt(void (*interruptHandler)(void));
+int platform_configure1msInterrupt(void (*interruptHandler)(void));
 
 /**
 * @brief init of falling edge interrupt pin.
@@ -46,7 +46,7 @@ int hal_configure1msInterrupt(void (*interruptHandler)(void));
 * @param interruptHandler pointer to edge interrupt handler function
 * @return 0 on sucess, 
 */
-int hal_configureInterruptPin(void (*interruptHandler)(void));
+int platform_configureInterruptPin(void (*interruptHandler)(void));
 
 /**
 * @brief i2c write command
@@ -56,7 +56,7 @@ int hal_configureInterruptPin(void (*interruptHandler)(void));
 * @param length length of data you want to send
 * @return 0 on success or error code on failure.
 */
-int hal_i2cRead(uint8_t slaveAddr, uint8_t reg, uint8_t *data, uint16_t length);
+int platform_i2cRead(uint8_t slaveAddr, uint8_t reg, uint8_t *data, uint16_t length);
 
 /**
 * @brief i2c write command
@@ -67,7 +67,7 @@ int hal_i2cRead(uint8_t slaveAddr, uint8_t reg, uint8_t *data, uint16_t length);
 * @param length length of data you want to send
 * @return 0 on success or error code on failure.
 */
-int hal_i2cWrite(uint8_t slaveAddr, uint8_t reg, uint8_t *data, uint16_t length);
+int platform_i2cWrite(uint8_t slaveAddr, uint8_t reg, uint8_t *data, uint16_t length);
 
 
 #ifdef __cplusplus

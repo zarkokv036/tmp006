@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\tmp006.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\tmp006.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6140002: Last Updated: Tue Mar  9 16:53:13 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6140002: Last Updated: Wed Mar 10 01:52:59 2021
 <BR><P>
 <H3>Maximum Stack Usage =        144 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -254,12 +254,12 @@ Function Pointers
  <LI><a href="#[59]">WTIMER5A_Handler</a> from startup_tm4c123.o(.text) referenced from startup_tm4c123.o(RESET)
  <LI><a href="#[5a]">WTIMER5B_Handler</a> from startup_tm4c123.o(.text) referenced from startup_tm4c123.o(RESET)
  <LI><a href="#[79]">__main</a> from __main.o(!!!main) referenced from startup_tm4c123.o(.text)
- <LI><a href="#[0]">hal_i2cRead</a> from platform_tm4c.o(.text.hal_i2cRead) referenced 2 times from test.o(.data.senzor)
- <LI><a href="#[1]">hal_i2cWrite</a> from platform_tm4c.o(.text.hal_i2cWrite) referenced 2 times from test.o(.data.senzor)
- <LI><a href="#[7b]">interruptPinHandler</a> from platform_tm4c.o(.text.interruptPinHandler) referenced 2 times from platform_tm4c.o(.text.hal_configureInterruptPin)
- <LI><a href="#[7d]">pinInterruptHandler</a> from test.o(.text.pinInterruptHandler) referenced 2 times from test.o(.text.test_init)
- <LI><a href="#[7a]">timerHandler</a> from platform_tm4c.o(.text.timerHandler) referenced 2 times from platform_tm4c.o(.text.hal_configure1msInterrupt)
- <LI><a href="#[7c]">timerHandler</a> from test.o(.text.timerHandler) referenced 2 times from test.o(.text.test_init)
+ <LI><a href="#[7b]">interruptPinHandler</a> from platform_tm4c.o(.text.interruptPinHandler) referenced 2 times from platform_tm4c.o(.text.platform_configureInterruptPin)
+ <LI><a href="#[7d]">pinInterruptHandler</a> from test_framework.o(.text.pinInterruptHandler) referenced 2 times from test_framework.o(.text.test_init)
+ <LI><a href="#[0]">platform_i2cRead</a> from platform_tm4c.o(.text.platform_i2cRead) referenced 2 times from test_framework.o(.data.senzor)
+ <LI><a href="#[1]">platform_i2cWrite</a> from platform_tm4c.o(.text.platform_i2cWrite) referenced 2 times from test_framework.o(.data.senzor)
+ <LI><a href="#[7a]">timerHandler</a> from platform_tm4c.o(.text.timerHandler) referenced 2 times from platform_tm4c.o(.text.platform_configure1msInterrupt)
+ <LI><a href="#[7c]">timerHandler</a> from test_framework.o(.text.timerHandler) referenced 2 times from test_framework.o(.text.test_init)
 </UL>
 <P>
 <H3>
@@ -397,7 +397,7 @@ Global Symbols
 <P><STRONG><a name="[8c]"></a>SysCtlDelay</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, sysctl.o(.emb_text))
 <BR><BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlDelay
 </UL>
-<BR>[Called By]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlClockSet
+<BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlClockSet
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlDelay
 </UL>
 
@@ -1279,7 +1279,7 @@ Global Symbols
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlPeripheralPresent
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlPeripheralEnable
 </UL>
-<BR>[Called By]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initUartPrintf
+<BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initUartPrintf
 </UL>
 
 <P><STRONG><a name="[97]"></a>UARTprintf</STRONG> (Thumb, 32 bytes, Stack size 24 bytes, uartstdio.o(.text.UARTprintf))
@@ -1288,7 +1288,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UARTvprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_run
+<BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_run
 </UL>
 
 <P><STRONG><a name="[98]"></a>UARTvprintf</STRONG> (Thumb, 696 bytes, Stack size 64 bytes, uartstdio.o(.text.UARTvprintf))
@@ -1315,171 +1315,266 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlPeripheralReady
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlPeripheralEnable
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_init
+<BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;platform_init
 </UL>
 
-<P><STRONG><a name="[a1]"></a>hal_configure1msInterrupt</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, platform_tm4c.o(.text.hal_configure1msInterrupt))
-<BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = hal_configure1msInterrupt &rArr; initTimer1mSec &rArr; TimerIntRegister &rArr; _TimerIntNumberGet
-</UL>
-<BR>[Calls]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer1mSec
-</UL>
-<BR>[Called By]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_init
-</UL>
-
-<P><STRONG><a name="[a3]"></a>hal_configureInterruptPin</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, platform_tm4c.o(.text.hal_configureInterruptPin))
-<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = hal_configureInterruptPin &rArr; initPorts &rArr; GPIOPinTypeGPIOOutput &rArr; GPIOPadConfigSet
-</UL>
-<BR>[Calls]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initPorts
-</UL>
-<BR>[Called By]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_init
-</UL>
-
-<P><STRONG><a name="[0]"></a>hal_i2cRead</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, platform_tm4c.o(.text.hal_i2cRead))
-<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = hal_i2cRead &rArr; i2cRead
-</UL>
-<BR>[Calls]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cRead
-</UL>
-<BR>[Address Reference Count : 1]<UL><LI> test.o(.data.senzor)
-</UL>
-<P><STRONG><a name="[1]"></a>hal_i2cWrite</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, platform_tm4c.o(.text.hal_i2cWrite))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = hal_i2cWrite &rArr; i2cWrite
-</UL>
-<BR>[Calls]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cWrite
-</UL>
-<BR>[Address Reference Count : 1]<UL><LI> test.o(.data.senzor)
-</UL>
-<P><STRONG><a name="[a7]"></a>hal_init</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, platform_tm4c.o(.text.hal_init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = hal_init &rArr; initUartPrintf &rArr; UARTStdioConfig &rArr; UARTConfigSetExpClk
-</UL>
-<BR>[Calls]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initUartPrintf
-<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initSystemClock_40MHz
-<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initI2c
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;enablePeripheralsClock
-</UL>
-<BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[a5]"></a>i2cRead</STRONG> (Thumb, 140 bytes, Stack size 32 bytes, tm4c_init.o(.text.i2cRead))
+<P><STRONG><a name="[a1]"></a>i2cRead</STRONG> (Thumb, 140 bytes, Stack size 32 bytes, tm4c_init.o(.text.i2cRead))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = i2cRead
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CMasterSlaveAddrSet
-<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CMasterDataPut
-<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CMasterDataGet
-<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CMasterControl
-<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CMasterBusy
+<BR>[Calls]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CMasterSlaveAddrSet
+<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CMasterDataPut
+<LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CMasterDataGet
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CMasterControl
+<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CMasterBusy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_i2cRead
+<BR>[Called By]<UL><LI><a href="#[0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;platform_i2cRead
 </UL>
 
-<P><STRONG><a name="[a6]"></a>i2cWrite</STRONG> (Thumb, 106 bytes, Stack size 24 bytes, tm4c_init.o(.text.i2cWrite))
+<P><STRONG><a name="[a7]"></a>i2cWrite</STRONG> (Thumb, 106 bytes, Stack size 24 bytes, tm4c_init.o(.text.i2cWrite))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = i2cWrite
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CMasterSlaveAddrSet
-<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CMasterDataPut
-<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CMasterControl
-<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CMasterBusy
+<BR>[Calls]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CMasterSlaveAddrSet
+<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CMasterDataPut
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CMasterControl
+<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CMasterBusy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_i2cWrite
+<BR>[Called By]<UL><LI><a href="#[1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;platform_i2cWrite
 </UL>
 
-<P><STRONG><a name="[a9]"></a>initI2c</STRONG> (Thumb, 122 bytes, Stack size 16 bytes, tm4c_init.o(.text.initI2c))
+<P><STRONG><a name="[a8]"></a>initI2c</STRONG> (Thumb, 122 bytes, Stack size 16 bytes, tm4c_init.o(.text.initI2c))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = initI2c &rArr; GPIOPinTypeI2CSCL &rArr; GPIOPadConfigSet
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlPeripheralReset
+<BR>[Calls]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlPeripheralReset
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlPeripheralReady
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlPeripheralEnable
-<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlClockGet
-<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CMasterInitExpClk
-<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeI2CSCL
-<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeI2C
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinConfigure
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlClockGet
+<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CMasterInitExpClk
+<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeI2CSCL
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeI2C
+<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinConfigure
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_init
+<BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;platform_init
 </UL>
 
-<P><STRONG><a name="[a4]"></a>initPorts</STRONG> (Thumb, 72 bytes, Stack size 16 bytes, tm4c_init.o(.text.initPorts))
+<P><STRONG><a name="[af]"></a>initPorts</STRONG> (Thumb, 72 bytes, Stack size 16 bytes, tm4c_init.o(.text.initPorts))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = initPorts &rArr; GPIOPinTypeGPIOOutput &rArr; GPIOPadConfigSet
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOUnlockPin
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeGPIOOutput
-<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeGPIOInput
-<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOIntTypeSet
-<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOIntRegister
-<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOIntEnable
+<BR>[Calls]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOUnlockPin
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeGPIOOutput
+<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeGPIOInput
+<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOIntTypeSet
+<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOIntRegister
+<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOIntEnable
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_configureInterruptPin
+<BR>[Called By]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;platform_configureInterruptPin
 </UL>
 
-<P><STRONG><a name="[a8]"></a>initSystemClock_40MHz</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, tm4c_init.o(.text.initSystemClock_40MHz))
+<P><STRONG><a name="[b6]"></a>initSystemClock_40MHz</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, tm4c_init.o(.text.initSystemClock_40MHz))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = initSystemClock_40MHz &rArr; SysCtlClockSet
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlClockSet
+<BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlClockSet
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_init
+<BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;platform_init
 </UL>
 
-<P><STRONG><a name="[a2]"></a>initTimer1mSec</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, tm4c_init.o(.text.initTimer1mSec))
+<P><STRONG><a name="[b8]"></a>initTimer1mSec</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, tm4c_init.o(.text.initTimer1mSec))
 <BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = initTimer1mSec &rArr; TimerIntRegister &rArr; _TimerIntNumberGet
 </UL>
-<BR>[Calls]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerLoadSet
-<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerIntRegister
-<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerIntEnable
-<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerEnable
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerConfigure
+<BR>[Calls]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerLoadSet
+<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerIntRegister
+<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerIntEnable
+<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerEnable
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerConfigure
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlPeripheralReady
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlPeripheralEnable
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_configure1msInterrupt
+<BR>[Called By]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;platform_configure1msInterrupt
 </UL>
 
-<P><STRONG><a name="[aa]"></a>initUartPrintf</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, tm4c_init.o(.text.initUartPrintf))
+<P><STRONG><a name="[be]"></a>initUartPrintf</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, tm4c_init.o(.text.initUartPrintf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = initUartPrintf &rArr; UARTStdioConfig &rArr; UARTConfigSetExpClk
 </UL>
 <BR>[Calls]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UARTStdioConfig
-<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlClockGet
-<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeUART
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinConfigure
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlClockGet
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeUART
+<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinConfigure
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_init
+<BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;platform_init
 </UL>
 
 <P><STRONG><a name="[86]"></a>main</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, main.o(.text.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144 + Unknown Stack Size
 <LI>Call Chain = main &rArr; test_run &rArr; UARTprintf &rArr; UARTvprintf &rArr; UARTwrite
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_run
-<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_init
-<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_init
+<BR>[Calls]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_run
+<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_init
+<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;platform_init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
 
-<P><STRONG><a name="[c4]"></a>test_init</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, test.o(.text.test_init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = test_init &rArr; hal_configure1msInterrupt &rArr; initTimer1mSec &rArr; TimerIntRegister &rArr; _TimerIntNumberGet
+<P><STRONG><a name="[7d]"></a>pinInterruptHandler</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, test_framework.o(.text.pinInterruptHandler))
+<BR>[Address Reference Count : 1]<UL><LI> test_framework.o(.text.test_init)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_configureInterruptPin
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_configure1msInterrupt
+<P><STRONG><a name="[c4]"></a>platform_configure1msInterrupt</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, platform_tm4c.o(.text.platform_configure1msInterrupt))
+<BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = platform_configure1msInterrupt &rArr; initTimer1mSec &rArr; TimerIntRegister &rArr; _TimerIntNumberGet
+</UL>
+<BR>[Calls]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer1mSec
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_init
+</UL>
+
+<P><STRONG><a name="[c5]"></a>platform_configureInterruptPin</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, platform_tm4c.o(.text.platform_configureInterruptPin))
+<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = platform_configureInterruptPin &rArr; initPorts &rArr; GPIOPinTypeGPIOOutput &rArr; GPIOPadConfigSet
+</UL>
+<BR>[Calls]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initPorts
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_init
+</UL>
+
+<P><STRONG><a name="[0]"></a>platform_i2cRead</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, platform_tm4c.o(.text.platform_i2cRead))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = platform_i2cRead &rArr; i2cRead
+</UL>
+<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cRead
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> test_framework.o(.data.senzor)
+</UL>
+<P><STRONG><a name="[1]"></a>platform_i2cWrite</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, platform_tm4c.o(.text.platform_i2cWrite))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = platform_i2cWrite &rArr; i2cWrite
+</UL>
+<BR>[Calls]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cWrite
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> test_framework.o(.data.senzor)
+</UL>
+<P><STRONG><a name="[c1]"></a>platform_init</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, platform_tm4c.o(.text.platform_init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = platform_init &rArr; initUartPrintf &rArr; UARTStdioConfig &rArr; UARTConfigSetExpClk
+</UL>
+<BR>[Calls]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initUartPrintf
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initSystemClock_40MHz
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initI2c
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;enablePeripheralsClock
 </UL>
 <BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[c5]"></a>test_run</STRONG> (Thumb, 648 bytes, Stack size 24 bytes, test.o(.text.test_run))
+<P><STRONG><a name="[c7]"></a>setUp</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, test_framework.o(.text.setUp))
+<BR><BR>[Called By]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_powerDownModeIntOn
+<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_powerDownModeIntOff
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOn
+<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOff
+</UL>
+
+<P><STRONG><a name="[c6]"></a>test_customConvRateIntOff</STRONG> (Thumb, 272 bytes, Stack size 56 bytes, test_framework.o(.text.test_customConvRateIntOff))
+<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = test_customConvRateIntOff &rArr; checkTemperatureValue &rArr; tmp006_readTemp &rArr; tmp006_read
+</UL>
+<BR>[Calls]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_isResultReady
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_drdyPinConfig
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_configConvRate
+<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setUp
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;conversionRateToFloat
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkTemperatureValue
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_resetDevice
+<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dcmple
+<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dcmpgt
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_run
+</UL>
+
+<P><STRONG><a name="[d3]"></a>test_customConvRateIntOn</STRONG> (Thumb, 224 bytes, Stack size 40 bytes, test_framework.o(.text.test_customConvRateIntOn))
+<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = test_customConvRateIntOn &rArr; checkTemperatureValue &rArr; tmp006_readTemp &rArr; tmp006_read
+</UL>
+<BR>[Calls]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_drdyPinConfig
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_configConvRate
+<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setUp
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;conversionRateToFloat
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkTemperatureValue
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_resetDevice
+<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dcmple
+<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dcmpgt
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_run
+</UL>
+
+<P><STRONG><a name="[c2]"></a>test_init</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, test_framework.o(.text.test_init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = test_init &rArr; platform_configure1msInterrupt &rArr; initTimer1mSec &rArr; TimerIntRegister &rArr; _TimerIntNumberGet
+</UL>
+<BR>[Calls]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;platform_configureInterruptPin
+<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;platform_configure1msInterrupt
+</UL>
+<BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[d4]"></a>test_powerDownModeIntOff</STRONG> (Thumb, 92 bytes, Stack size 24 bytes, test_framework.o(.text.test_powerDownModeIntOff))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = test_powerDownModeIntOff &rArr; tmp006_operationMode &rArr; tmp006_write
+</UL>
+<BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_operationMode
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_isResultReady
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_drdyPinConfig
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_configConvRate
+<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setUp
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_run
+</UL>
+
+<P><STRONG><a name="[d6]"></a>test_powerDownModeIntOn</STRONG> (Thumb, 78 bytes, Stack size 8 bytes, test_framework.o(.text.test_powerDownModeIntOn))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = test_powerDownModeIntOn &rArr; tmp006_operationMode &rArr; tmp006_write
+</UL>
+<BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_operationMode
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_drdyPinConfig
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_configConvRate
+<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setUp
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_run
+</UL>
+
+<P><STRONG><a name="[d7]"></a>test_readManufId</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, test_framework.o(.text.test_readManufId))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = test_readManufId &rArr; tmp006_read
+</UL>
+<BR>[Calls]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_read
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_run
+</UL>
+
+<P><STRONG><a name="[c3]"></a>test_run</STRONG> (Thumb, 648 bytes, Stack size 24 bytes, test.o(.text.test_run))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136 + Unknown Stack Size
 <LI>Call Chain = test_run &rArr; UARTprintf &rArr; UARTvprintf &rArr; UARTwrite
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_resetDevice
 <LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_init
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UARTprintf
 <LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_writeIntoConfig
 <LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_readManufId
 <LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_powerDownModeIntOn
 <LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_powerDownModeIntOff
 <LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOn
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOff
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UARTprintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
+<P><STRONG><a name="[d9]"></a>test_writeIntoConfig</STRONG> (Thumb, 188 bytes, Stack size 16 bytes, test_framework.o(.text.test_writeIntoConfig))
+<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = test_writeIntoConfig &rArr; tmp006_operationMode &rArr; tmp006_write
+</UL>
+<BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_operationMode
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_drdyPinConfig
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_configConvRate
+<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkConfigReg
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_resetDevice
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_run
+</UL>
+
+<P><STRONG><a name="[7c]"></a>timerHandler</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, test_framework.o(.text.timerHandler))
+<BR>[Address Reference Count : 1]<UL><LI> test_framework.o(.text.test_init)
+</UL>
 <P><STRONG><a name="[c9]"></a>tmp006_configConvRate</STRONG> (Thumb, 70 bytes, Stack size 24 bytes, tmp006.o(.text.tmp006_configConvRate))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = tmp006_configConvRate &rArr; tmp006_write
 </UL>
@@ -1511,7 +1606,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setI2cAddress
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_run
+<BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_run
 </UL>
 
 <P><STRONG><a name="[d2]"></a>tmp006_isResultReady</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, tmp006.o(.text.tmp006_isResultReady))
@@ -1542,8 +1637,8 @@ Global Symbols
 <LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_isResultReady
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_drdyPinConfig
 <LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_configConvRate
-<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_readManufId
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkConfigReg
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_readManufId
 </UL>
 
 <P><STRONG><a name="[9e]"></a>tmp006_readTemp</STRONG> (Thumb, 40 bytes, Stack size 8 bytes, tmp006.o(.text.tmp006_readTemp))
@@ -1562,184 +1657,184 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_writeIntoConfig
 <LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOn
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOff
-<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_run
+<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_run
 </UL>
 
 <P><STRONG><a name="[db]"></a>tmp006_write</STRONG> (Thumb, 56 bytes, Stack size 16 bytes, tmp006.o(.text.tmp006_write))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = tmp006_write
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_resetDevice
-<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_operationMode
+<BR>[Called By]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_operationMode
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_drdyPinConfig
 <LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_configConvRate
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_resetDevice
 </UL>
 
 <P><STRONG><a name="[e0]"></a>GPIODirModeSet</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, gpio.o(i.GPIODirModeSet))
-<BR><BR>[Called By]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeUART
-<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeI2CSCL
-<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeI2C
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeGPIOOutput
-<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeGPIOInput
+<BR><BR>[Called By]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeUART
+<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeI2CSCL
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeI2C
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeGPIOOutput
+<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeGPIOInput
 </UL>
 
-<P><STRONG><a name="[c3]"></a>GPIOIntClear</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, gpio.o(i.GPIOIntClear))
+<P><STRONG><a name="[c0]"></a>GPIOIntClear</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, gpio.o(i.GPIOIntClear))
 <BR><BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;interruptPinHandler
 </UL>
 
-<P><STRONG><a name="[bb]"></a>GPIOIntEnable</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, gpio.o(i.GPIOIntEnable))
-<BR><BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initPorts
+<P><STRONG><a name="[b5]"></a>GPIOIntEnable</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, gpio.o(i.GPIOIntEnable))
+<BR><BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initPorts
 </UL>
 
-<P><STRONG><a name="[b9]"></a>GPIOIntRegister</STRONG> (Thumb, 30 bytes, Stack size 16 bytes, gpio.o(i.GPIOIntRegister))
+<P><STRONG><a name="[b3]"></a>GPIOIntRegister</STRONG> (Thumb, 30 bytes, Stack size 16 bytes, gpio.o(i.GPIOIntRegister))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = GPIOIntRegister &rArr; IntRegister
 </UL>
 <BR>[Calls]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IntRegister
 <LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IntEnable
 <LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_GPIOIntNumberGet
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initPorts
+<BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initPorts
 </UL>
 
-<P><STRONG><a name="[ba]"></a>GPIOIntTypeSet</STRONG> (Thumb, 102 bytes, Stack size 0 bytes, gpio.o(i.GPIOIntTypeSet))
-<BR><BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initPorts
+<P><STRONG><a name="[b4]"></a>GPIOIntTypeSet</STRONG> (Thumb, 102 bytes, Stack size 0 bytes, gpio.o(i.GPIOIntTypeSet))
+<BR><BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initPorts
 </UL>
 
 <P><STRONG><a name="[e1]"></a>GPIOPadConfigSet</STRONG> (Thumb, 384 bytes, Stack size 20 bytes, gpio.o(i.GPIOPadConfigSet))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = GPIOPadConfigSet
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeUART
-<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeI2CSCL
-<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeI2C
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeGPIOOutput
-<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeGPIOInput
+<BR>[Called By]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeUART
+<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeI2CSCL
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeI2C
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeGPIOOutput
+<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPinTypeGPIOInput
 </UL>
 
-<P><STRONG><a name="[b1]"></a>GPIOPinConfigure</STRONG> (Thumb, 70 bytes, Stack size 8 bytes, gpio.o(i.GPIOPinConfigure))
+<P><STRONG><a name="[aa]"></a>GPIOPinConfigure</STRONG> (Thumb, 70 bytes, Stack size 8 bytes, gpio.o(i.GPIOPinConfigure))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = GPIOPinConfigure
 </UL>
-<BR>[Called By]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initUartPrintf
-<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initI2c
+<BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initUartPrintf
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initI2c
 </UL>
 
-<P><STRONG><a name="[b8]"></a>GPIOPinTypeGPIOInput</STRONG> (Thumb, 30 bytes, Stack size 12 bytes, gpio.o(i.GPIOPinTypeGPIOInput))
+<P><STRONG><a name="[b2]"></a>GPIOPinTypeGPIOInput</STRONG> (Thumb, 30 bytes, Stack size 12 bytes, gpio.o(i.GPIOPinTypeGPIOInput))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = GPIOPinTypeGPIOInput &rArr; GPIOPadConfigSet
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPadConfigSet
 <LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIODirModeSet
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initPorts
+<BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initPorts
 </UL>
 
-<P><STRONG><a name="[b7]"></a>GPIOPinTypeGPIOOutput</STRONG> (Thumb, 30 bytes, Stack size 12 bytes, gpio.o(i.GPIOPinTypeGPIOOutput))
+<P><STRONG><a name="[b1]"></a>GPIOPinTypeGPIOOutput</STRONG> (Thumb, 30 bytes, Stack size 12 bytes, gpio.o(i.GPIOPinTypeGPIOOutput))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = GPIOPinTypeGPIOOutput &rArr; GPIOPadConfigSet
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPadConfigSet
 <LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIODirModeSet
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initPorts
+<BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initPorts
 </UL>
 
-<P><STRONG><a name="[b3]"></a>GPIOPinTypeI2C</STRONG> (Thumb, 30 bytes, Stack size 12 bytes, gpio.o(i.GPIOPinTypeI2C))
+<P><STRONG><a name="[ac]"></a>GPIOPinTypeI2C</STRONG> (Thumb, 30 bytes, Stack size 12 bytes, gpio.o(i.GPIOPinTypeI2C))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = GPIOPinTypeI2C &rArr; GPIOPadConfigSet
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPadConfigSet
 <LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIODirModeSet
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initI2c
+<BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initI2c
 </UL>
 
-<P><STRONG><a name="[b2]"></a>GPIOPinTypeI2CSCL</STRONG> (Thumb, 30 bytes, Stack size 12 bytes, gpio.o(i.GPIOPinTypeI2CSCL))
+<P><STRONG><a name="[ab]"></a>GPIOPinTypeI2CSCL</STRONG> (Thumb, 30 bytes, Stack size 12 bytes, gpio.o(i.GPIOPinTypeI2CSCL))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = GPIOPinTypeI2CSCL &rArr; GPIOPadConfigSet
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPadConfigSet
 <LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIODirModeSet
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initI2c
+<BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initI2c
 </UL>
 
-<P><STRONG><a name="[c2]"></a>GPIOPinTypeUART</STRONG> (Thumb, 30 bytes, Stack size 12 bytes, gpio.o(i.GPIOPinTypeUART))
+<P><STRONG><a name="[bf]"></a>GPIOPinTypeUART</STRONG> (Thumb, 30 bytes, Stack size 12 bytes, gpio.o(i.GPIOPinTypeUART))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = GPIOPinTypeUART &rArr; GPIOPadConfigSet
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPadConfigSet
 <LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIODirModeSet
 </UL>
-<BR>[Called By]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initUartPrintf
+<BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initUartPrintf
 </UL>
 
-<P><STRONG><a name="[b6]"></a>GPIOUnlockPin</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, gpio.o(i.GPIOUnlockPin))
-<BR><BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initPorts
+<P><STRONG><a name="[b0]"></a>GPIOUnlockPin</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, gpio.o(i.GPIOUnlockPin))
+<BR><BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initPorts
 </UL>
 
-<P><STRONG><a name="[ae]"></a>I2CMasterBusy</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, i2c.o(i.I2CMasterBusy))
-<BR><BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cWrite
-<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cRead
+<P><STRONG><a name="[a5]"></a>I2CMasterBusy</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, i2c.o(i.I2CMasterBusy))
+<BR><BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cWrite
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cRead
 </UL>
 
-<P><STRONG><a name="[ad]"></a>I2CMasterControl</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, i2c.o(i.I2CMasterControl))
-<BR><BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cWrite
-<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cRead
+<P><STRONG><a name="[a4]"></a>I2CMasterControl</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, i2c.o(i.I2CMasterControl))
+<BR><BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cWrite
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cRead
 </UL>
 
-<P><STRONG><a name="[af]"></a>I2CMasterDataGet</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, i2c.o(i.I2CMasterDataGet))
-<BR><BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cRead
+<P><STRONG><a name="[a6]"></a>I2CMasterDataGet</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, i2c.o(i.I2CMasterDataGet))
+<BR><BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cRead
 </UL>
 
-<P><STRONG><a name="[ac]"></a>I2CMasterDataPut</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, i2c.o(i.I2CMasterDataPut))
-<BR><BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cWrite
-<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cRead
+<P><STRONG><a name="[a3]"></a>I2CMasterDataPut</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, i2c.o(i.I2CMasterDataPut))
+<BR><BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cWrite
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cRead
 </UL>
 
 <P><STRONG><a name="[e2]"></a>I2CMasterEnable</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, i2c.o(i.I2CMasterEnable))
-<BR><BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CMasterInitExpClk
+<BR><BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CMasterInitExpClk
 </UL>
 
-<P><STRONG><a name="[b5]"></a>I2CMasterInitExpClk</STRONG> (Thumb, 78 bytes, Stack size 16 bytes, i2c.o(i.I2CMasterInitExpClk))
+<P><STRONG><a name="[ae]"></a>I2CMasterInitExpClk</STRONG> (Thumb, 78 bytes, Stack size 16 bytes, i2c.o(i.I2CMasterInitExpClk))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = I2CMasterInitExpClk
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2CMasterEnable
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initI2c
+<BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initI2c
 </UL>
 
-<P><STRONG><a name="[ab]"></a>I2CMasterSlaveAddrSet</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, i2c.o(i.I2CMasterSlaveAddrSet))
-<BR><BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cWrite
-<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cRead
+<P><STRONG><a name="[a2]"></a>I2CMasterSlaveAddrSet</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, i2c.o(i.I2CMasterSlaveAddrSet))
+<BR><BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cWrite
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2cRead
 </UL>
 
 <P><STRONG><a name="[df]"></a>IntEnable</STRONG> (Thumb, 108 bytes, Stack size 0 bytes, interrupt.o(i.IntEnable))
-<BR><BR>[Called By]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerIntRegister
-<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOIntRegister
+<BR><BR>[Called By]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerIntRegister
+<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOIntRegister
 </UL>
 
 <P><STRONG><a name="[de]"></a>IntRegister</STRONG> (Thumb, 52 bytes, Stack size 12 bytes, interrupt.o(i.IntRegister))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = IntRegister
 </UL>
-<BR>[Called By]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerIntRegister
-<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOIntRegister
+<BR>[Called By]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerIntRegister
+<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOIntRegister
 </UL>
 
-<P><STRONG><a name="[b4]"></a>SysCtlClockGet</STRONG> (Thumb, 324 bytes, Stack size 20 bytes, sysctl.o(i.SysCtlClockGet))
+<P><STRONG><a name="[ad]"></a>SysCtlClockGet</STRONG> (Thumb, 324 bytes, Stack size 20 bytes, sysctl.o(i.SysCtlClockGet))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = SysCtlClockGet
 </UL>
-<BR>[Called By]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initUartPrintf
-<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initI2c
+<BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initUartPrintf
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initI2c
 </UL>
 
-<P><STRONG><a name="[bc]"></a>SysCtlClockSet</STRONG> (Thumb, 280 bytes, Stack size 24 bytes, sysctl.o(i.SysCtlClockSet))
+<P><STRONG><a name="[b7]"></a>SysCtlClockSet</STRONG> (Thumb, 280 bytes, Stack size 24 bytes, sysctl.o(i.SysCtlClockSet))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = SysCtlClockSet
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysCtlDelay
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initSystemClock_40MHz
+<BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initSystemClock_40MHz
 </UL>
 
 <P><STRONG><a name="[94]"></a>SysCtlPeripheralEnable</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, sysctl.o(i.SysCtlPeripheralEnable))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SysCtlPeripheralEnable
 </UL>
-<BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UARTStdioConfig
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer1mSec
-<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initI2c
+<BR>[Called By]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer1mSec
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initI2c
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;enablePeripheralsClock
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UARTStdioConfig
 </UL>
 
 <P><STRONG><a name="[93]"></a>SysCtlPeripheralPresent</STRONG> (Thumb, 52 bytes, Stack size 0 bytes, sysctl.o(i.SysCtlPeripheralPresent))
@@ -1747,45 +1842,45 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[a0]"></a>SysCtlPeripheralReady</STRONG> (Thumb, 52 bytes, Stack size 0 bytes, sysctl.o(i.SysCtlPeripheralReady))
-<BR><BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer1mSec
-<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initI2c
+<BR><BR>[Called By]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer1mSec
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initI2c
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;enablePeripheralsClock
 </UL>
 
-<P><STRONG><a name="[b0]"></a>SysCtlPeripheralReset</STRONG> (Thumb, 106 bytes, Stack size 12 bytes, sysctl.o(i.SysCtlPeripheralReset))
+<P><STRONG><a name="[a9]"></a>SysCtlPeripheralReset</STRONG> (Thumb, 106 bytes, Stack size 12 bytes, sysctl.o(i.SysCtlPeripheralReset))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = SysCtlPeripheralReset
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initI2c
+<BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initI2c
 </UL>
 
-<P><STRONG><a name="[bd]"></a>TimerConfigure</STRONG> (Thumb, 84 bytes, Stack size 0 bytes, timer.o(i.TimerConfigure))
-<BR><BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer1mSec
+<P><STRONG><a name="[b9]"></a>TimerConfigure</STRONG> (Thumb, 84 bytes, Stack size 0 bytes, timer.o(i.TimerConfigure))
+<BR><BR>[Called By]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer1mSec
 </UL>
 
-<P><STRONG><a name="[c1]"></a>TimerEnable</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, timer.o(i.TimerEnable))
-<BR><BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer1mSec
+<P><STRONG><a name="[bd]"></a>TimerEnable</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, timer.o(i.TimerEnable))
+<BR><BR>[Called By]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer1mSec
 </UL>
 
 <P><STRONG><a name="[da]"></a>TimerIntClear</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, timer.o(i.TimerIntClear))
 <BR><BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timerHandler
 </UL>
 
-<P><STRONG><a name="[c0]"></a>TimerIntEnable</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, timer.o(i.TimerIntEnable))
-<BR><BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer1mSec
+<P><STRONG><a name="[bc]"></a>TimerIntEnable</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, timer.o(i.TimerIntEnable))
+<BR><BR>[Called By]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer1mSec
 </UL>
 
-<P><STRONG><a name="[bf]"></a>TimerIntRegister</STRONG> (Thumb, 38 bytes, Stack size 24 bytes, timer.o(i.TimerIntRegister))
+<P><STRONG><a name="[bb]"></a>TimerIntRegister</STRONG> (Thumb, 38 bytes, Stack size 24 bytes, timer.o(i.TimerIntRegister))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = TimerIntRegister &rArr; _TimerIntNumberGet
 </UL>
 <BR>[Calls]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IntRegister
 <LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IntEnable
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_TimerIntNumberGet
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer1mSec
+<BR>[Called By]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer1mSec
 </UL>
 
-<P><STRONG><a name="[be]"></a>TimerLoadSet</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, timer.o(i.TimerLoadSet))
-<BR><BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer1mSec
+<P><STRONG><a name="[ba]"></a>TimerLoadSet</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, timer.o(i.TimerLoadSet))
+<BR><BR>[Called By]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer1mSec
 </UL>
 
 <P><STRONG><a name="[9a]"></a>UARTCharPut</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, uart.o(i.UARTCharPut))
@@ -1973,7 +2068,7 @@ Global Symbols
 <H3>
 Local Symbols
 </H3>
-<P><STRONG><a name="[9b]"></a>checkConfigReg</STRONG> (Thumb, 56 bytes, Stack size 24 bytes, test.o(.text.checkConfigReg))
+<P><STRONG><a name="[9b]"></a>checkConfigReg</STRONG> (Thumb, 56 bytes, Stack size 24 bytes, test_framework.o(.text.checkConfigReg))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = checkConfigReg &rArr; tmp006_read
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_read
@@ -1981,7 +2076,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_writeIntoConfig
 </UL>
 
-<P><STRONG><a name="[9d]"></a>checkTemperatureValue</STRONG> (Thumb, 140 bytes, Stack size 24 bytes, test.o(.text.checkTemperatureValue))
+<P><STRONG><a name="[9d]"></a>checkTemperatureValue</STRONG> (Thumb, 140 bytes, Stack size 24 bytes, test_framework.o(.text.checkTemperatureValue))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = checkTemperatureValue &rArr; tmp006_readTemp &rArr; tmp006_read
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_readTemp
@@ -1990,119 +2085,24 @@ Local Symbols
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOff
 </UL>
 
-<P><STRONG><a name="[cb]"></a>conversionRateToFloat</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, test.o(.text.conversionRateToFloat))
+<P><STRONG><a name="[cb]"></a>conversionRateToFloat</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, test_framework.o(.text.conversionRateToFloat))
 <BR><BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOn
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOff
 </UL>
 
-<P><STRONG><a name="[7d]"></a>pinInterruptHandler</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, test.o(.text.pinInterruptHandler))
-<BR>[Address Reference Count : 1]<UL><LI> test.o(.text.test_init)
-</UL>
-<P><STRONG><a name="[c7]"></a>setUp</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, test.o(.text.setUp))
-<BR><BR>[Called By]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_powerDownModeIntOn
-<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_powerDownModeIntOff
-<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOn
-<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOff
-</UL>
-
-<P><STRONG><a name="[c6]"></a>test_customConvRateIntOff</STRONG> (Thumb, 272 bytes, Stack size 56 bytes, test.o(.text.test_customConvRateIntOff))
-<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = test_customConvRateIntOff &rArr; checkTemperatureValue &rArr; tmp006_readTemp &rArr; tmp006_read
-</UL>
-<BR>[Calls]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_resetDevice
-<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_isResultReady
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_drdyPinConfig
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_configConvRate
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setUp
-<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;conversionRateToFloat
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkTemperatureValue
-<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
-<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
-<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dcmple
-<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dcmpgt
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-</UL>
-<BR>[Called By]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_run
-</UL>
-
-<P><STRONG><a name="[d3]"></a>test_customConvRateIntOn</STRONG> (Thumb, 224 bytes, Stack size 40 bytes, test.o(.text.test_customConvRateIntOn))
-<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = test_customConvRateIntOn &rArr; checkTemperatureValue &rArr; tmp006_readTemp &rArr; tmp006_read
-</UL>
-<BR>[Calls]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_resetDevice
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_drdyPinConfig
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_configConvRate
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setUp
-<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;conversionRateToFloat
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkTemperatureValue
-<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
-<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
-<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dcmple
-<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dcmpgt
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-</UL>
-<BR>[Called By]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_run
-</UL>
-
-<P><STRONG><a name="[d4]"></a>test_powerDownModeIntOff</STRONG> (Thumb, 92 bytes, Stack size 24 bytes, test.o(.text.test_powerDownModeIntOff))
-<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = test_powerDownModeIntOff &rArr; tmp006_operationMode &rArr; tmp006_write
-</UL>
-<BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_operationMode
-<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_isResultReady
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_drdyPinConfig
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_configConvRate
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setUp
-</UL>
-<BR>[Called By]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_run
-</UL>
-
-<P><STRONG><a name="[d6]"></a>test_powerDownModeIntOn</STRONG> (Thumb, 78 bytes, Stack size 8 bytes, test.o(.text.test_powerDownModeIntOn))
-<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = test_powerDownModeIntOn &rArr; tmp006_operationMode &rArr; tmp006_write
-</UL>
-<BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_operationMode
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_drdyPinConfig
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_configConvRate
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setUp
-</UL>
-<BR>[Called By]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_run
-</UL>
-
-<P><STRONG><a name="[d7]"></a>test_readManufId</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, test.o(.text.test_readManufId))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = test_readManufId &rArr; tmp006_read
-</UL>
-<BR>[Calls]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_read
-</UL>
-<BR>[Called By]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_run
-</UL>
-
-<P><STRONG><a name="[d9]"></a>test_writeIntoConfig</STRONG> (Thumb, 188 bytes, Stack size 16 bytes, test.o(.text.test_writeIntoConfig))
-<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = test_writeIntoConfig &rArr; tmp006_operationMode &rArr; tmp006_write
-</UL>
-<BR>[Calls]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_resetDevice
-<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_operationMode
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_drdyPinConfig
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_configConvRate
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkConfigReg
-</UL>
-<BR>[Called By]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_run
-</UL>
-
-<P><STRONG><a name="[7c]"></a>timerHandler</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, test.o(.text.timerHandler))
-<BR>[Address Reference Count : 1]<UL><LI> test.o(.text.test_init)
-</UL>
 <P><STRONG><a name="[7b]"></a>interruptPinHandler</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, platform_tm4c.o(.text.interruptPinHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = interruptPinHandler
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOIntClear
+<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOIntClear
 </UL>
-<BR>[Address Reference Count : 1]<UL><LI> platform_tm4c.o(.text.hal_configureInterruptPin)
+<BR>[Address Reference Count : 1]<UL><LI> platform_tm4c.o(.text.platform_configureInterruptPin)
 </UL>
 <P><STRONG><a name="[7a]"></a>timerHandler</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, platform_tm4c.o(.text.timerHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = timerHandler
 </UL>
 <BR>[Calls]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerIntClear
 </UL>
-<BR>[Address Reference Count : 1]<UL><LI> platform_tm4c.o(.text.hal_configure1msInterrupt)
+<BR>[Address Reference Count : 1]<UL><LI> platform_tm4c.o(.text.platform_configure1msInterrupt)
 </UL>
 <P><STRONG><a name="[dc]"></a>setI2cAddress</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, tmp006.o(.text.setI2cAddress))
 <BR><BR>[Called By]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_init
@@ -2111,13 +2111,13 @@ Local Symbols
 <P><STRONG><a name="[dd]"></a>_GPIOIntNumberGet</STRONG> (Thumb, 56 bytes, Stack size 12 bytes, gpio.o(i._GPIOIntNumberGet))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = _GPIOIntNumberGet
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOIntRegister
+<BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOIntRegister
 </UL>
 
 <P><STRONG><a name="[e3]"></a>_TimerIntNumberGet</STRONG> (Thumb, 68 bytes, Stack size 20 bytes, timer.o(i._TimerIntNumberGet))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = _TimerIntNumberGet
 </UL>
-<BR>[Called By]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerIntRegister
+<BR>[Called By]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerIntRegister
 </UL>
 
 <P><STRONG><a name="[ef]"></a>_dadd1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, daddsub_clz.o(x$fpl$dadd), UNUSED)

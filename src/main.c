@@ -4,13 +4,13 @@
 *
 * @author Zarko Milojicic
 */
-
-#include "test.h"
 #include "platform.h"
+#include "test.h"
+
 
 int main(void)
 {
-    hal_init();
+    platform_init();
     test_init();
     test_run();
 

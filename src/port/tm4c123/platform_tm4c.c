@@ -5,9 +5,10 @@
 * @author Zarko Milojicic
 */
 
-#include "tm4c_init.h" 
+#include "tm4c_init.h"
+//#include "platform.h"
 
-int hal_init(void)
+int platform_init(void)
 {
     initSystemClock_40MHz();
     enablePeripheralsClock();
@@ -17,9 +18,9 @@ int hal_init(void)
     return 0;
 }
 
-typedef void (*HAL_InterruptHandler)(void);
+typedef void (*PLATFORM_InterruptHandler)(void);
 
-static HAL_InterruptHandler timerCallback;
+static PLATFORM_InterruptHandler timerCallback;
 
 /**
 * @brief Timer interrupt handler
@@ -33,7 +34,7 @@ static void timerHandler(void)
     timerCallback();    
 }
 
-int hal_configure1msInterrupt(void (*interruptHandler)(void))
+int platform_configure1msInterrupt(void (*interruptHandler)(void))
 {
     timerCallback = interruptHandler;
     
@@ -42,8 +43,7 @@ int hal_configure1msInterrupt(void (*interruptHandler)(void))
     return 0;
 }
 
-
-static HAL_InterruptHandler interruptPinCallback;
+static PLATFORM_InterruptHandler interruptPinCallback;
 
 /**
 * @brief Falling edge pin interrupt handler
@@ -57,7 +57,7 @@ static void interruptPinHandler (void)
     interruptPinCallback();
 }
 
-int hal_configureInterruptPin(void (*interruptHandler)(void))
+int platform_configureInterruptPin(void (*interruptHandler)(void))
 {
     interruptPinCallback = interruptHandler;
     
@@ -66,12 +66,12 @@ int hal_configureInterruptPin(void (*interruptHandler)(void))
     return 0;
 }
 
-int hal_i2cRead(uint8_t slaveAddr, uint8_t reg, uint8_t *data, uint16_t length)
+int platform_i2cRead(uint8_t slaveAddr, uint8_t reg, uint8_t *data, uint16_t length)
 {
     return i2cRead(slaveAddr, reg, data, length);
 }
 
-int hal_i2cWrite(uint8_t slaveAddr, uint8_t reg, uint8_t *data, uint16_t length)
+int platform_i2cWrite(uint8_t slaveAddr, uint8_t reg, uint8_t *data, uint16_t length)
 {
     return i2cWrite(slaveAddr, reg, data, length);
 }

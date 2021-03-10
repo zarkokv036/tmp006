@@ -1,5 +1,4 @@
-./objects/main.o: src\main.c src\test.h src\platform.h \
-  src\port\tm4c123\tm4c_init.h \
+./objects/main.o: src\main.c src\platform.h src\port\tm4c123\tm4c_init.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h \
   C:\ti\TivaWare_C_Series-2.2.0.295\inc\..\driverlib\sysctl.h \
@@ -11,4 +10,5 @@
   C:\ti\TivaWare_C_Series-2.2.0.295\inc\..\driverlib\uart.h \
   C:\ti\TivaWare_C_Series-2.2.0.295\inc\..\utils\uartstdio.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdarg.h \
-  C:\ti\TivaWare_C_Series-2.2.0.295\inc\tm4c123gh6pm.h
+  C:\ti\TivaWare_C_Series-2.2.0.295\inc\tm4c123gh6pm.h src\test.h \
+  src\tmp006\tmp006.h
