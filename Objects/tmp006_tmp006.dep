@@ -15,14 +15,14 @@ I (C:\ti\TivaWare_C_Series-2.2.0.295\driverlib\uart.h)(0x5F3A9652)
 I (C:\ti\TivaWare_C_Series-2.2.0.295\utils\uartstdio.h)(0x5F3A965C)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x5ED66044)
 I (C:\ti\TivaWare_C_Series-2.2.0.295\inc\tm4c123gh6pm.h)(0x5F3A9657)
-I (src\test.h)(0x6048186A)
+I (src\test.h)(0x604819CF)
 I (src\tmp006\tmp006.h)(0x602FF972)
 F (.\src\platform.h)(0x604817E7)()
 F (.\src\test.c)(0x6048121E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I C:/ti/TivaWare_C_Series-2.2.0.295/inc -I C:/ti/TivaWare_C_Series-2.2.0.295/driverlib -I C:/ti/TivaWare_C_Series-2.2.0.295/utils-I./RTE/_tmp006-IC:/Users/zarko/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/zarko/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Driver/Include-IC:/Users/zarko/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="531" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/test.o -MD)
 I (src\tmp006\tmp006.h)(0x602FF972)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5ED66044)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x5ED66044)
-I (src\test.h)(0x6048186A)
+I (src\test.h)(0x604819CF)
 I (src\platform.h)(0x604817E7)
 I (src\port\tm4c123\tm4c_init.h)(0x6036C515)
 I (C:\ti\TivaWare_C_Series-2.2.0.295\driverlib\sysctl.h)(0x5F3A9652)
@@ -35,11 +35,11 @@ I (C:\ti\TivaWare_C_Series-2.2.0.295\driverlib\uart.h)(0x5F3A9652)
 I (C:\ti\TivaWare_C_Series-2.2.0.295\utils\uartstdio.h)(0x5F3A965C)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x5ED66044)
 I (C:\ti\TivaWare_C_Series-2.2.0.295\inc\tm4c123gh6pm.h)(0x5F3A9657)
-F (.\src\test.h)(0x6048186A)()
+F (.\src\test.h)(0x604819CF)()
 F (.\src\test_framework.c)(0x6048121C)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I C:/ti/TivaWare_C_Series-2.2.0.295/inc -I C:/ti/TivaWare_C_Series-2.2.0.295/driverlib -I C:/ti/TivaWare_C_Series-2.2.0.295/utils-I./RTE/_tmp006-IC:/Users/zarko/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/zarko/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Driver/Include-IC:/Users/zarko/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="531" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/test_framework.o -MD)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5ED66044)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x5ED66044)
-I (src\test.h)(0x6048186A)
+I (src\test.h)(0x604819CF)
 I (src\tmp006\tmp006.h)(0x602FF972)
 I (src\platform.h)(0x604817E7)
 I (src\port\tm4c123\tm4c_init.h)(0x6036C515)
@@ -87,7 +87,7 @@ I (C:\ti\TivaWare_C_Series-2.2.0.295\driverlib\sysctl.h)(0x5F3A9652)
 I (C:\ti\TivaWare_C_Series-2.2.0.295\driverlib\uart.h)(0x5F3A9652)
 I (C:\ti\TivaWare_C_Series-2.2.0.295\utils\uartstdio.h)(0x5F3A965C)
 F (.\src\port\tm4c123\uartstdio.h)(0x5F3A965C)()
-F (.\src\port\tm4c123\platform_tm4c.c)(0x604817C6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./src -I C:/ti/TivaWare_C_Series-2.2.0.295/inc -I C:/ti/TivaWare_C_Series-2.2.0.295/driverlib -I C:/ti/TivaWare_C_Series-2.2.0.295/utils-I./RTE/_tmp006-IC:/Users/zarko/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/zarko/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Driver/Include-IC:/Users/zarko/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="531" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/platform_tm4c.o -MD)
+F (.\src\port\tm4c123\platform_tm4c.c)(0x60488BA8)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./src -I C:/ti/TivaWare_C_Series-2.2.0.295/inc -I C:/ti/TivaWare_C_Series-2.2.0.295/driverlib -I C:/ti/TivaWare_C_Series-2.2.0.295/utils-I./RTE/_tmp006-IC:/Users/zarko/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/zarko/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Driver/Include-IC:/Users/zarko/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="531" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/platform_tm4c.o -MD)
 I (src\port\tm4c123\tm4c_init.h)(0x6036C515)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5ED66044)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x5ED66044)
@@ -101,6 +101,7 @@ I (C:\ti\TivaWare_C_Series-2.2.0.295\driverlib\uart.h)(0x5F3A9652)
 I (C:\ti\TivaWare_C_Series-2.2.0.295\utils\uartstdio.h)(0x5F3A965C)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x5ED66044)
 I (C:\ti\TivaWare_C_Series-2.2.0.295\inc\tm4c123gh6pm.h)(0x5F3A9657)
+I (src\platform.h)(0x604817E7)
 F (.\src\tmp006\tmp006.c)(0x60305C1B)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I C:/ti/TivaWare_C_Series-2.2.0.295/inc -I C:/ti/TivaWare_C_Series-2.2.0.295/driverlib -I C:/ti/TivaWare_C_Series-2.2.0.295/utils-I./RTE/_tmp006-IC:/Users/zarko/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/zarko/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Driver/Include-IC:/Users/zarko/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="531" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/tmp006.o -MD)
 I (src\tmp006\tmp006.h)(0x602FF972)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5ED66044)

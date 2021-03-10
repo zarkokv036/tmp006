@@ -6,7 +6,7 @@
 */
 
 #include "tm4c_init.h"
-//#include "platform.h"
+#include "platform.h"
 
 int platform_init(void)
 {
