@@ -18,9 +18,9 @@ int platform_init(void)
     return 0;
 }
 
-typedef void (*PLATFORM_InterruptHandler)(void);
+typedef void (*platform_InterruptHandler)(void);
 
-static PLATFORM_InterruptHandler timerCallback;
+static platform_InterruptHandler timerCallback;
 
 /**
 * @brief Timer interrupt handler
@@ -43,7 +43,7 @@ int platform_configure1msInterrupt(void (*interruptHandler)(void))
     return 0;
 }
 
-static PLATFORM_InterruptHandler interruptPinCallback;
+static platform_InterruptHandler interruptPinCallback;
 
 /**
 * @brief Falling edge pin interrupt handler

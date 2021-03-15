@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\tmp006.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\tmp006.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6140002: Last Updated: Wed Mar 10 10:04:48 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6140002: Last Updated: Mon Mar 15 16:21:22 2021
 <BR><P>
 <H3>Maximum Stack Usage =        144 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1309,6 +1309,14 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UARTvprintf
 </UL>
 
+<P><STRONG><a name="[9b]"></a>checkConfigReg</STRONG> (Thumb, 56 bytes, Stack size 24 bytes, test_framework.o(.text.checkConfigReg))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = checkConfigReg &rArr; tmp006_read
+</UL>
+<BR>[Calls]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_read
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_writeIntoConfig
+</UL>
+
 <P><STRONG><a name="[9f]"></a>enablePeripheralsClock</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, tm4c_init.o(.text.enablePeripheralsClock))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = enablePeripheralsClock &rArr; SysCtlPeripheralEnable
 </UL>
@@ -1457,48 +1465,43 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[c7]"></a>setUp</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, test_framework.o(.text.setUp))
-<BR><BR>[Called By]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_powerDownModeIntOn
-<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_powerDownModeIntOff
-<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOn
-<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOff
+<P><STRONG><a name="[d8]"></a>setUp</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, test_framework.o(.text.setUp))
+<BR><BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_run
 </UL>
 
-<P><STRONG><a name="[c6]"></a>test_customConvRateIntOff</STRONG> (Thumb, 272 bytes, Stack size 56 bytes, test_framework.o(.text.test_customConvRateIntOff))
+<P><STRONG><a name="[c6]"></a>test_customConvRateIntOff</STRONG> (Thumb, 264 bytes, Stack size 56 bytes, test.o(.text.test_customConvRateIntOff))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = test_customConvRateIntOff &rArr; checkTemperatureValue &rArr; tmp006_readTemp &rArr; tmp006_read
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_isResultReady
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_drdyPinConfig
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_configConvRate
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setUp
-<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;conversionRateToFloat
+<BR>[Calls]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_resetDevice
+<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_isResultReady
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_drdyPinConfig
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_configConvRate
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;conversionRateToFloat
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkTemperatureValue
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_resetDevice
-<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
-<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
-<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dcmple
-<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dcmpgt
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
+<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dcmple
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dcmpgt
+<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_run
 </UL>
 
-<P><STRONG><a name="[d3]"></a>test_customConvRateIntOn</STRONG> (Thumb, 224 bytes, Stack size 40 bytes, test_framework.o(.text.test_customConvRateIntOn))
+<P><STRONG><a name="[d2]"></a>test_customConvRateIntOn</STRONG> (Thumb, 216 bytes, Stack size 40 bytes, test.o(.text.test_customConvRateIntOn))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = test_customConvRateIntOn &rArr; checkTemperatureValue &rArr; tmp006_readTemp &rArr; tmp006_read
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_drdyPinConfig
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_configConvRate
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setUp
-<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;conversionRateToFloat
+<BR>[Calls]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_resetDevice
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_drdyPinConfig
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_configConvRate
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;conversionRateToFloat
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkTemperatureValue
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_resetDevice
-<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
-<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
-<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dcmple
-<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dcmpgt
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
+<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dcmple
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dcmpgt
+<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_run
 </UL>
@@ -1512,30 +1515,28 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[d4]"></a>test_powerDownModeIntOff</STRONG> (Thumb, 92 bytes, Stack size 24 bytes, test_framework.o(.text.test_powerDownModeIntOff))
+<P><STRONG><a name="[d3]"></a>test_powerDownModeIntOff</STRONG> (Thumb, 88 bytes, Stack size 24 bytes, test.o(.text.test_powerDownModeIntOff))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = test_powerDownModeIntOff &rArr; tmp006_operationMode &rArr; tmp006_write
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_operationMode
-<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_isResultReady
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_drdyPinConfig
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_configConvRate
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setUp
+<BR>[Calls]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_operationMode
+<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_isResultReady
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_drdyPinConfig
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_configConvRate
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_run
 </UL>
 
-<P><STRONG><a name="[d6]"></a>test_powerDownModeIntOn</STRONG> (Thumb, 78 bytes, Stack size 8 bytes, test_framework.o(.text.test_powerDownModeIntOn))
+<P><STRONG><a name="[d5]"></a>test_powerDownModeIntOn</STRONG> (Thumb, 74 bytes, Stack size 8 bytes, test.o(.text.test_powerDownModeIntOn))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = test_powerDownModeIntOn &rArr; tmp006_operationMode &rArr; tmp006_write
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_operationMode
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_drdyPinConfig
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_configConvRate
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setUp
+<BR>[Calls]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_operationMode
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_drdyPinConfig
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_configConvRate
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_run
 </UL>
 
-<P><STRONG><a name="[d7]"></a>test_readManufId</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, test_framework.o(.text.test_readManufId))
+<P><STRONG><a name="[d6]"></a>test_readManufId</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, test.o(.text.test_readManufId))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = test_readManufId &rArr; tmp006_read
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_read
@@ -1543,31 +1544,32 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_run
 </UL>
 
-<P><STRONG><a name="[c3]"></a>test_run</STRONG> (Thumb, 648 bytes, Stack size 24 bytes, test.o(.text.test_run))
+<P><STRONG><a name="[c3]"></a>test_run</STRONG> (Thumb, 704 bytes, Stack size 24 bytes, test.o(.text.test_run))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136 + Unknown Stack Size
 <LI>Call Chain = test_run &rArr; UARTprintf &rArr; UARTvprintf &rArr; UARTwrite
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_resetDevice
-<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_init
+<BR>[Calls]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_resetDevice
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_init
 <LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_writeIntoConfig
-<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_readManufId
-<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_powerDownModeIntOn
-<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_powerDownModeIntOff
-<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOn
+<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_readManufId
+<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_powerDownModeIntOn
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_powerDownModeIntOff
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOn
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOff
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setUp
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UARTprintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[d9]"></a>test_writeIntoConfig</STRONG> (Thumb, 188 bytes, Stack size 16 bytes, test_framework.o(.text.test_writeIntoConfig))
+<P><STRONG><a name="[d9]"></a>test_writeIntoConfig</STRONG> (Thumb, 188 bytes, Stack size 16 bytes, test.o(.text.test_writeIntoConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = test_writeIntoConfig &rArr; tmp006_operationMode &rArr; tmp006_write
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_operationMode
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_drdyPinConfig
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_configConvRate
+<BR>[Calls]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_resetDevice
+<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_operationMode
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_drdyPinConfig
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_configConvRate
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkConfigReg
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_resetDevice
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_run
 </UL>
@@ -1575,33 +1577,33 @@ Global Symbols
 <P><STRONG><a name="[7c]"></a>timerHandler</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, test_framework.o(.text.timerHandler))
 <BR>[Address Reference Count : 1]<UL><LI> test_framework.o(.text.test_init)
 </UL>
-<P><STRONG><a name="[c9]"></a>tmp006_configConvRate</STRONG> (Thumb, 70 bytes, Stack size 24 bytes, tmp006.o(.text.tmp006_configConvRate))
+<P><STRONG><a name="[c8]"></a>tmp006_configConvRate</STRONG> (Thumb, 70 bytes, Stack size 24 bytes, tmp006.o(.text.tmp006_configConvRate))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = tmp006_configConvRate &rArr; tmp006_write
 </UL>
 <BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_write
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_read
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_writeIntoConfig
-<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_powerDownModeIntOn
-<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_powerDownModeIntOff
-<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOn
+<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_powerDownModeIntOn
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_powerDownModeIntOff
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOn
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOff
 </UL>
 
-<P><STRONG><a name="[ca]"></a>tmp006_drdyPinConfig</STRONG> (Thumb, 70 bytes, Stack size 24 bytes, tmp006.o(.text.tmp006_drdyPinConfig))
+<P><STRONG><a name="[c9]"></a>tmp006_drdyPinConfig</STRONG> (Thumb, 70 bytes, Stack size 24 bytes, tmp006.o(.text.tmp006_drdyPinConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = tmp006_drdyPinConfig &rArr; tmp006_write
 </UL>
 <BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_write
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_read
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_writeIntoConfig
-<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_powerDownModeIntOn
-<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_powerDownModeIntOff
-<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOn
+<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_powerDownModeIntOn
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_powerDownModeIntOff
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOn
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOff
 </UL>
 
-<P><STRONG><a name="[d8]"></a>tmp006_init</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, tmp006.o(.text.tmp006_init))
+<P><STRONG><a name="[d7]"></a>tmp006_init</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, tmp006.o(.text.tmp006_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = tmp006_init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setI2cAddress
@@ -1609,36 +1611,36 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_run
 </UL>
 
-<P><STRONG><a name="[d2]"></a>tmp006_isResultReady</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, tmp006.o(.text.tmp006_isResultReady))
+<P><STRONG><a name="[d1]"></a>tmp006_isResultReady</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, tmp006.o(.text.tmp006_isResultReady))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = tmp006_isResultReady &rArr; tmp006_read
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_read
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_powerDownModeIntOff
+<BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_powerDownModeIntOff
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOff
 </UL>
 
-<P><STRONG><a name="[d5]"></a>tmp006_operationMode</STRONG> (Thumb, 70 bytes, Stack size 24 bytes, tmp006.o(.text.tmp006_operationMode))
+<P><STRONG><a name="[d4]"></a>tmp006_operationMode</STRONG> (Thumb, 70 bytes, Stack size 24 bytes, tmp006.o(.text.tmp006_operationMode))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = tmp006_operationMode &rArr; tmp006_write
 </UL>
 <BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_write
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_read
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_writeIntoConfig
-<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_powerDownModeIntOn
-<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_powerDownModeIntOff
+<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_powerDownModeIntOn
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_powerDownModeIntOff
 </UL>
 
 <P><STRONG><a name="[9c]"></a>tmp006_read</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, tmp006.o(.text.tmp006_read))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = tmp006_read
 </UL>
 <BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_readTemp
-<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_operationMode
-<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_isResultReady
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_drdyPinConfig
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_configConvRate
+<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_operationMode
+<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_isResultReady
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_drdyPinConfig
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_configConvRate
+<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_readManufId
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkConfigReg
-<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_readManufId
 </UL>
 
 <P><STRONG><a name="[9e]"></a>tmp006_readTemp</STRONG> (Thumb, 40 bytes, Stack size 8 bytes, tmp006.o(.text.tmp006_readTemp))
@@ -1649,13 +1651,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkTemperatureValue
 </UL>
 
-<P><STRONG><a name="[c8]"></a>tmp006_resetDevice</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, tmp006.o(.text.tmp006_resetDevice))
+<P><STRONG><a name="[c7]"></a>tmp006_resetDevice</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, tmp006.o(.text.tmp006_resetDevice))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = tmp006_resetDevice &rArr; tmp006_write
 </UL>
 <BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_write
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_writeIntoConfig
-<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOn
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOn
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOff
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_run
 </UL>
@@ -1663,10 +1665,10 @@ Global Symbols
 <P><STRONG><a name="[db]"></a>tmp006_write</STRONG> (Thumb, 56 bytes, Stack size 16 bytes, tmp006.o(.text.tmp006_write))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = tmp006_write
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_operationMode
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_drdyPinConfig
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_configConvRate
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_resetDevice
+<BR>[Called By]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_resetDevice
+<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_operationMode
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_drdyPinConfig
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_configConvRate
 </UL>
 
 <P><STRONG><a name="[e0]"></a>GPIODirModeSet</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, gpio.o(i.GPIODirModeSet))
@@ -1905,10 +1907,10 @@ Global Symbols
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UARTStdioConfig
 </UL>
 
-<P><STRONG><a name="[ce]"></a>__aeabi_dadd</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, daddsub_clz.o(x$fpl$dadd))
+<P><STRONG><a name="[cd]"></a>__aeabi_dadd</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, daddsub_clz.o(x$fpl$dadd))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_dadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOn
+<BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOn
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOff
 </UL>
 
@@ -1934,8 +1936,8 @@ Global Symbols
 <LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_deq
 </UL>
 
-<P><STRONG><a name="[cc]"></a>__aeabi_ui2d</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dfltu))
-<BR><BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOn
+<P><STRONG><a name="[cb]"></a>__aeabi_ui2d</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dfltu))
+<BR><BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOn
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOff
 </UL>
 
@@ -1963,10 +1965,10 @@ Global Symbols
 
 <P><STRONG><a name="[128]"></a>__fpl_dcmple_InfNaN</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, dleqf.o(x$fpl$dleqf), UNUSED)
 
-<P><STRONG><a name="[cf]"></a>__aeabi_dmul</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, dmul.o(x$fpl$dmul))
+<P><STRONG><a name="[ce]"></a>__aeabi_dmul</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, dmul.o(x$fpl$dmul))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_dmul
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOn
+<BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOn
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOff
 </UL>
 
@@ -1997,10 +1999,10 @@ Global Symbols
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dadd1
 </UL>
 
-<P><STRONG><a name="[cd]"></a>__aeabi_f2d</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d))
+<P><STRONG><a name="[cc]"></a>__aeabi_f2d</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_f2d
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOn
+<BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOn
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOff
 </UL>
 
@@ -2019,10 +2021,10 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dcmpeq
 </UL>
 
-<P><STRONG><a name="[d1]"></a>__aeabi_dcmpgt</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, dcmp.o(x$fpl$fcmp))
+<P><STRONG><a name="[d0]"></a>__aeabi_dcmpgt</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, dcmp.o(x$fpl$fcmp))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_dcmpgt
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOn
+<BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOn
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOff
 </UL>
 
@@ -2036,10 +2038,10 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dcmpge
 </UL>
 
-<P><STRONG><a name="[d0]"></a>__aeabi_dcmple</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, dcmp.o(x$fpl$fcmp))
+<P><STRONG><a name="[cf]"></a>__aeabi_dcmple</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, dcmp.o(x$fpl$fcmp))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_dcmple
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOn
+<BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOn
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOff
 </UL>
 
@@ -2068,25 +2070,17 @@ Global Symbols
 <H3>
 Local Symbols
 </H3>
-<P><STRONG><a name="[9b]"></a>checkConfigReg</STRONG> (Thumb, 56 bytes, Stack size 24 bytes, test_framework.o(.text.checkConfigReg))
-<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = checkConfigReg &rArr; tmp006_read
-</UL>
-<BR>[Calls]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_read
-</UL>
-<BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_writeIntoConfig
-</UL>
-
-<P><STRONG><a name="[9d]"></a>checkTemperatureValue</STRONG> (Thumb, 140 bytes, Stack size 24 bytes, test_framework.o(.text.checkTemperatureValue))
+<P><STRONG><a name="[9d]"></a>checkTemperatureValue</STRONG> (Thumb, 140 bytes, Stack size 24 bytes, test.o(.text.checkTemperatureValue))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = checkTemperatureValue &rArr; tmp006_readTemp &rArr; tmp006_read
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_readTemp
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOn
+<BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOn
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOff
 </UL>
 
-<P><STRONG><a name="[cb]"></a>conversionRateToFloat</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, test_framework.o(.text.conversionRateToFloat))
-<BR><BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOn
+<P><STRONG><a name="[ca]"></a>conversionRateToFloat</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, test.o(.text.conversionRateToFloat))
+<BR><BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOn
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;test_customConvRateIntOff
 </UL>
 
@@ -2105,7 +2099,7 @@ Local Symbols
 <BR>[Address Reference Count : 1]<UL><LI> platform_tm4c.o(.text.platform_configure1msInterrupt)
 </UL>
 <P><STRONG><a name="[dc]"></a>setI2cAddress</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, tmp006.o(.text.setI2cAddress))
-<BR><BR>[Called By]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_init
+<BR><BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tmp006_init
 </UL>
 
 <P><STRONG><a name="[dd]"></a>_GPIOIntNumberGet</STRONG> (Thumb, 56 bytes, Stack size 12 bytes, gpio.o(i._GPIOIntNumberGet))

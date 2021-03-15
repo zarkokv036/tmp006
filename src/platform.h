@@ -5,7 +5,7 @@
 * @author Zarko Milojicic
 */
 
-#include "port/tm4c123/tm4c_init.h" 
+#define PORT_TM4C123
 
 #ifndef PLATFORM_H
 #define  PLATFORM_H
@@ -14,11 +14,21 @@
 extern "C" {
 #endif
 
+#ifdef PORT_TM4C123
+#include "port/tm4c123/tm4c_init.h" 
+
 /**
 * @brief Wraper for printf function
 * @note Change the UARTprintf with appropriate name of your printf function
 */
 #define PRINTF(fmt,...)   UARTprintf((fmt), ##__VA_ARGS__)
+#else
+
+#include <stdio.h>
+
+#define PRINTF(fmt,...)   printf((fmt), ##__VA_ARGS__)
+
+#endif
 
 /**
 * @brief initialization of tm4c123

@@ -5,9 +5,6 @@
 * @author Zarko Milojicic
 */
 
-#include <stdint.h>
-#include "tmp006/tmp006.h"
-#include "platform.h"
 
 #ifndef TEST_H
 #define  TEST_H
@@ -16,6 +13,10 @@
 extern "C" {
 #endif
 
+#include <stdint.h>
+#include "tmp006/tmp006.h"
+#include "platform.h"
+
 
 /**
 * @brief Helper macro for parametar checking
@@ -23,14 +24,14 @@ extern "C" {
 #define TEST_ASSERT(expr)                 \
     do                                   \
     {                                    \
-        bool e = expr;                   \
+        bool e = (expr);                   \
         if (!e)                          \
         {                                \
             return false;                \
         }                                \
                                          \
     } while (0)
-    
+
 
 /**
 * @brief Helper macro for test running
@@ -40,6 +41,7 @@ extern "C" {
     do                                                       \
     {                                                        \
         PRINTF("Test case: %s", (testName));                 \
+        setUp();                                             \
         bool success = (testCase)(__VA_ARGS__);              \
         PRINTF(success ? " -> PASS \n" : " -> FAIL \n");     \
     } while (0)                                              \
@@ -80,7 +82,16 @@ void test_run(void);
 * @brief function for system set up before every test
 */      
 void setUp(void);
-    
+
+/**
+* @brief check value at required position in the CONFIG register.
+*
+* @param mask Position of values in config register you want to check.
+* @param checkValue Value you expect to be in register at required position.
+* @return true if CheckValue is at required position, false if it's not.
+*/
+bool checkConfigReg(uint16_t mask, uint16_t checkValue);
+
 /**
 * @brief handler for edge interrupt on pin.
 * Announce that result is ready via resultReadyFlag and counts the results.
